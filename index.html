@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Deval Mehta, PhD — Senior Lecturer in Digital Health at RMIT University. Expert in foundation AI models, multimodal learning, and translational AI systems for healthcare.">
+<title>Deval Mehta, PhD | AI for Healthcare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================
+   RESET & ROOT — LIGHT THEME
+===================================================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  /* Backgrounds */
+  --bg0:#f4f7fc;
+  --bg1:#ffffff;
+  --bg2:#eaf0f9;
+  --bgcard:#ffffff;
+  --bgcard-h:#f6f9ff;
+
+  /* Accent — professional blue */
+  --ac:#1a55c4;
+  --ac-dim:rgba(26,85,196,.1);
+  --ac-border:rgba(26,85,196,.2);
+
+  /* Green — clinical/health */
+  --ac2:#0a7a55;
+  --ac2-dim:rgba(10,122,85,.1);
+
+  /* Amber — awards */
+  --warm:#b45309;
+  --warm-dim:rgba(180,83,9,.1);
+
+  /* Purple — top/featured */
+  --purple:#6d28d9;
+  --purple-dim:rgba(109,40,217,.1);
+
+  /* Text */
+  --t1:#0c1b2e;
+  --t2:#2e4a6a;
+  --t3:#5c7a99;
+  --t4:#90adc8;
+
+  /* Borders */
+  --border:rgba(26,85,196,.14);
+  --border2:rgba(0,0,0,.08);
+
+  /* Layout */
+  --sw:284px;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono','Courier New',monospace;
+  --r:12px;
+  --rs:7px;
+  --sh:0 1px 6px rgba(0,20,60,.07),0 3px 14px rgba(0,20,60,.05);
+  --sh-h:0 4px 20px rgba(0,20,60,.11),0 2px 8px rgba(0,20,60,.07);
+  --tr:200ms ease;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);background:var(--bg0);color:var(--t1);
+  line-height:1.65;min-height:100vh;font-size:15px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--ac);text-decoration:none;transition:opacity var(--tr)}
+a:hover{opacity:.75}
+
+/* =====================================================
+   LAYOUT
+===================================================== */
+.layout{display:flex;min-height:100vh}
+
+/* --- Sidebar --- */
+.sidebar{
+  width:var(--sw);min-width:var(--sw);
+  background:var(--bg1);border-right:1px solid var(--border2);
+  position:fixed;top:0;left:0;height:100vh;overflow-y:auto;
+  display:flex;flex-direction:column;z-index:100;
+  box-shadow:2px 0 12px rgba(0,20,60,.05);
+}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+
+.profile-area{
+  padding:34px 24px 24px;
+  border-bottom:1px solid var(--border2);
+}
+.avatar-wrap{width:90px;height:90px;margin:0 auto 16px;position:relative}
+.avatar-ring{
+  position:absolute;inset:-3px;border-radius:50%;
+  background:conic-gradient(from 0deg,var(--ac),#38bdf8,var(--ac2),var(--purple),var(--ac));
+  animation:ring-spin 9s linear infinite;opacity:.45;
+}
+@keyframes ring-spin{to{transform:rotate(360deg)}}
+.avatar{
+  width:90px;height:90px;border-radius:50%;
+  background:linear-gradient(135deg,#ddeeff 0%,#c8dcf8 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:1.85rem;font-weight:500;color:var(--ac);
+  position:relative;z-index:1;border:2.5px solid var(--bg1);
+  letter-spacing:.04em;
+}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+
+.pname{
+  font-family:var(--serif);font-size:1.55rem;font-weight:500;
+  color:var(--t1);line-height:1.15;text-align:center;letter-spacing:.01em;
+}
+.pname em{font-style:italic;font-weight:300;font-size:1rem;display:block;margin-top:2px;color:var(--t3)}
+.ptitle{
+  font-size:.7rem;color:var(--ac);text-align:center;margin-top:7px;
+  letter-spacing:.09em;text-transform:uppercase;font-weight:600;
+}
+.paffil{font-size:.8rem;color:var(--t2);text-align:center;margin-top:4px;font-weight:500}
+.ploc{font-size:.74rem;color:var(--t3);text-align:center;margin-top:3px}
+
+.socials{display:flex;justify-content:center;gap:8px;margin-top:15px}
+.s-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:50%;
+  background:var(--bg2);border:1px solid var(--border2);color:var(--t3);
+  transition:all var(--tr);
+}
+.s-btn svg{width:14px;height:14px}
+.s-btn:hover{background:var(--ac-dim);border-color:var(--ac-border);color:var(--ac);opacity:1;transform:translateY(-2px)}
+
+/* --- Nav --- */
+.nav{padding:16px 12px;flex:1}
+.nav-label{
+  font-size:.61rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--t4);padding:0 10px;margin-bottom:6px;margin-top:6px;
+}
+.nl{
+  display:flex;align-items:center;gap:9px;padding:8px 10px;
+  border-radius:var(--rs);font-size:.83rem;font-weight:500;color:var(--t3);
+  transition:all var(--tr);margin-bottom:1px;
+}
+.nl svg{width:14px;height:14px;flex-shrink:0}
+.nl:hover{background:var(--ac-dim);color:var(--ac);opacity:1}
+.nl.active{background:var(--ac-dim);color:var(--ac);font-weight:600}
+
+.sb-footer{
+  padding:16px 24px;border-top:1px solid var(--border2);
+  font-size:.69rem;color:var(--t4);text-align:center;
+}
+
+/* --- Main --- */
+.main{margin-left:var(--sw);flex:1;min-width:0}
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+.sec{
+  padding:56px 52px;border-bottom:1px solid var(--border2);
+  max-width:calc(860px + 104px);
+}
+.sec:last-child{border-bottom:none}
+
+.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:30px}
+.st{
+  font-family:var(--serif);font-size:2rem;font-weight:500;
+  color:var(--t1);letter-spacing:.01em;line-height:1;white-space:nowrap;
+}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border2),transparent)}
+
+/* Cards */
+.card{
+  background:var(--bgcard);border:1px solid var(--border2);
+  border-radius:var(--r);padding:20px;transition:all var(--tr);box-shadow:var(--sh);
+}
+.card:hover{background:var(--bgcard-h);border-color:var(--ac-border);transform:translateY(-2px);box-shadow:var(--sh-h)}
+
+/* Tags */
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.tag{font-size:.69rem;padding:3px 10px;border-radius:100px;font-weight:500;letter-spacing:.02em}
+.tb{background:var(--ac-dim);color:var(--ac);border:1px solid var(--ac-border)}
+.tg{background:var(--ac2-dim);color:var(--ac2);border:1px solid rgba(10,122,85,.2)}
+.to{background:var(--warm-dim);color:var(--warm);border:1px solid rgba(180,83,9,.2)}
+.tp{background:var(--purple-dim);color:var(--purple);border:1px solid rgba(109,40,217,.2)}
+
+/* Venue badges */
+.vb{
+  display:inline-flex;align-items:center;
+  font-family:var(--mono);font-size:.63rem;font-weight:500;
+  padding:2px 8px;border-radius:4px;white-space:nowrap;
+  background:var(--ac-dim);color:var(--ac);letter-spacing:.04em;flex-shrink:0;
+  border:1px solid var(--ac-border);
+}
+.vb.clin{background:var(--ac2-dim);color:var(--ac2);border-color:rgba(10,122,85,.2)}
+.vb.aw{background:var(--warm-dim);color:var(--warm);border-color:rgba(180,83,9,.2)}
+.vb.top{background:var(--purple-dim);color:var(--purple);border-color:rgba(109,40,217,.2)}
+
+/* Subsection title */
+.sst{
+  font-family:var(--serif);font-size:1.08rem;font-style:italic;
+  color:var(--t2);margin-bottom:12px;
+}
+
+/* =====================================================
+   ABOUT
+===================================================== */
+#about{
+  background:var(--bg1);
+  border-bottom:1px solid var(--border2);
+}
+
+/* Two-column layout: text left, photo right */
+.about-cols{
+  display:flex;gap:44px;align-items:flex-start;
+}
+.about-text-col{flex:1;min-width:0}
+.about-photo-col{flex-shrink:0;width:188px}
+
+/* Photo box */
+.photo-box{
+  width:188px;height:228px;border-radius:12px;overflow:hidden;
+  border:2px solid var(--border2);box-shadow:var(--sh);
+  background:linear-gradient(145deg,#ddeeff 0%,#c6d9f8 100%);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.photo-box img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-fallback{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:var(--ac);
+}
+.photo-fallback span{
+  font-family:var(--serif);font-size:3rem;font-weight:500;letter-spacing:.04em;line-height:1;
+}
+.photo-fallback small{font-size:.66rem;color:var(--t4);font-style:italic;text-align:center;line-height:1.4}
+.photo-caption{
+  font-size:.68rem;color:var(--t4);text-align:center;margin-top:8px;line-height:1.4;
+}
+
+.bio{font-size:.96rem;color:var(--t2);line-height:1.82}
+.bio strong{color:var(--t1);font-weight:600}
+.bio p+p{margin-top:14px}
+
+/* Timeline */
+.tl{position:relative;padding-left:18px;margin-top:18px}
+.tl::before{
+  content:'';position:absolute;left:0;top:10px;bottom:10px;
+  width:1px;background:linear-gradient(to bottom,var(--ac),var(--ac2),transparent);opacity:.3;
+}
+.tl-i{position:relative;padding:0 0 22px 22px}
+.tl-i::before{
+  content:'';position:absolute;left:-4px;top:8px;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--ac);box-shadow:0 0 0 3px var(--ac-dim);
+}
+.tl-d{font-family:var(--mono);font-size:.66rem;color:var(--ac);letter-spacing:.06em}
+.tl-t{font-size:.93rem;font-weight:600;color:var(--t1);margin-top:2px}
+.tl-o{font-size:.79rem;color:var(--t3);margin-top:2px}
+.tl-x{font-size:.78rem;color:var(--t4);margin-top:4px;line-height:1.6}
+
+/* =====================================================
+   NEWS
+===================================================== */
+.news-list{display:flex;flex-direction:column;gap:10px}
+.ni{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:13px 16px;background:var(--bgcard);border-radius:var(--rs);
+  border:1px solid var(--border2);border-left:3px solid var(--ac);
+  transition:all var(--tr);box-shadow:var(--sh);
+}
+.ni:hover{box-shadow:var(--sh-h);border-left-color:var(--ac2)}
+.ni.gr{border-left-color:var(--ac2)}
+.ni.aw{border-left-color:var(--warm)}
+.ni.kn{border-left-color:var(--purple)}
+.nd{font-family:var(--mono);font-size:.64rem;color:var(--t4);white-space:nowrap;padding-top:2px;min-width:52px}
+.nc{flex:1}
+.nt{font-size:.86rem;color:var(--t1);font-weight:500;line-height:1.4}
+.nx{font-size:.74rem;color:var(--t3);margin-top:3px;font-style:italic}
+
+/* =====================================================
+   RESEARCH
+===================================================== */
+.rg{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:34px}
+.rc{
+  background:var(--bgcard);border:1px solid var(--border2);
+  border-radius:var(--r);padding:20px;transition:all var(--tr);box-shadow:var(--sh);
+}
+.rc:hover{box-shadow:var(--sh-h);border-color:var(--ac-border);transform:translateY(-2px)}
+.ri{font-size:1.6rem;margin-bottom:10px;display:block}
+.rct{font-family:var(--serif);font-size:1.06rem;color:var(--t1);font-weight:500;margin-bottom:6px}
+.rcd{font-size:.78rem;color:var(--t3);line-height:1.65}
+
+.pc{
+  background:var(--bgcard);border:1px solid var(--border2);
+  border-radius:var(--r);padding:17px 20px;margin-bottom:11px;
+  transition:all var(--tr);border-left:3px solid transparent;box-shadow:var(--sh);
+}
+.pc:hover{border-left-color:var(--ac);box-shadow:var(--sh-h)}
+.pct{font-size:.91rem;font-weight:600;color:var(--t1);margin-bottom:4px}
+.pcc{font-size:.75rem;color:var(--ac);margin-bottom:6px;font-weight:500}
+.pcd{font-size:.78rem;color:var(--t3);line-height:1.65}
+
+/* =====================================================
+   PUBLICATIONS
+===================================================== */
+.pub-list{display:flex;flex-direction:column;gap:12px}
+.pubcard{
+  background:var(--bgcard);border:1px solid var(--border2);
+  border-radius:var(--r);padding:17px 20px;transition:all var(--tr);box-shadow:var(--sh);
+}
+.pubcard:hover{box-shadow:var(--sh-h);border-color:var(--ac-border)}
+.ph{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:6px}
+.ptit{font-size:.88rem;font-weight:600;color:var(--t1);line-height:1.45;flex:1}
+.pau{font-size:.75rem;color:var(--t3);margin-bottom:6px;line-height:1.5}
+.pau strong{color:var(--ac);font-weight:600}
+.pm{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.py{font-family:var(--mono);font-size:.63rem;color:var(--t4)}
+.pn{font-size:.69rem;color:var(--warm);font-style:italic}
+
+/* =====================================================
+   TEACHING
+===================================================== */
+.tlist{display:flex;flex-direction:column;gap:11px}
+.titem{
+  background:var(--bgcard);border:1px solid var(--border2);
+  border-radius:var(--r);padding:15px 18px;transition:all var(--tr);box-shadow:var(--sh);
+}
+.titem:hover{box-shadow:var(--sh-h);border-color:var(--ac-border)}
+.thead2{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:4px}
+.trole{font-size:.86rem;font-weight:600;color:var(--t1)}
+.tper{font-family:var(--mono);font-size:.64rem;color:var(--t4);white-space:nowrap}
+.tcou{font-size:.77rem;color:var(--ac);margin-bottom:4px;font-weight:500}
+.tcon{font-size:.76rem;color:var(--t3);line-height:1.55}
+
+.sup-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:13px}
+.sup-cell{
+  background:var(--bgcard);border:1px solid var(--border2);
+  border-radius:var(--r);padding:13px 16px;box-shadow:var(--sh);
+}
+.sup-n{font-family:var(--serif);font-size:1.5rem;font-weight:600;line-height:1}
+.sup-l{font-size:.72rem;color:var(--t3);margin-top:3px}
+
+/* =====================================================
+   GRANTS
+===================================================== */
+.grant-hero{
+  display:flex;align-items:center;gap:20px;margin-bottom:26px;
+  padding:18px 24px;background:var(--bgcard);border:1px solid var(--border2);
+  border-radius:var(--r);box-shadow:var(--sh);
+}
+.gfund{font-family:var(--serif);font-size:2.5rem;font-weight:600;color:var(--ac2);line-height:1}
+.glab{font-size:.68rem;color:var(--t3);margin-top:3px;text-transform:uppercase;letter-spacing:.08em}
+.gdiv{width:1px;height:44px;background:var(--border2)}
+
+.glist{display:flex;flex-direction:column;gap:9px}
+.gi{
+  display:flex;gap:13px;align-items:flex-start;
+  padding:11px 15px;background:var(--bgcard);border-radius:var(--rs);
+  border:1px solid var(--border2);transition:all var(--tr);box-shadow:var(--sh);
+}
+.gi:hover{border-color:var(--ac-border);box-shadow:var(--sh-h)}
+.ga{font-family:var(--mono);font-size:.77rem;color:var(--ac2);font-weight:600;white-space:nowrap;min-width:68px}
+.gc{flex:1}
+.gtt{font-size:.83rem;color:var(--t1);font-weight:500;line-height:1.4;margin-bottom:3px}
+.gm{font-size:.71rem;color:var(--t3)}
+
+/* =====================================================
+   PATENTS
+===================================================== */
+.pat-list{display:flex;flex-direction:column;gap:9px}
+.pat-i{
+  display:flex;gap:13px;align-items:flex-start;
+  padding:11px 15px;background:var(--bgcard);border-radius:var(--rs);
+  border:1px solid var(--border2);transition:all var(--tr);box-shadow:var(--sh);
+}
+.pat-i:hover{border-color:var(--ac-border);box-shadow:var(--sh-h)}
+.pat-t{font-size:.83rem;color:var(--t1);font-weight:500;line-height:1.4;margin-bottom:3px}
+.pat-m{font-size:.71rem;color:var(--t3)}
+
+/* =====================================================
+   CONTACT
+===================================================== */
+.cgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+.citem{
+  display:flex;align-items:center;gap:11px;
+  padding:13px 16px;background:var(--bgcard);
+  border:1px solid var(--border2);border-radius:var(--r);
+  transition:all var(--tr);color:inherit;box-shadow:var(--sh);
+}
+.citem:hover{border-color:var(--ac-border);box-shadow:var(--sh-h);opacity:1}
+.cico{
+  width:36px;height:36px;border-radius:9px;background:var(--ac-dim);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.cico svg{width:16px;height:16px;color:var(--ac)}
+.clab{font-size:.67rem;color:var(--t4);text-transform:uppercase;letter-spacing:.08em}
+.cval{font-size:.82rem;color:var(--t1);margin-top:1px}
+
+.aw-list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.aw-i{
+  display:flex;gap:11px;align-items:flex-start;
+  padding:10px 15px;background:var(--bgcard);border-radius:var(--rs);
+  border:1px solid var(--border2);border-left:3px solid var(--warm);box-shadow:var(--sh);
+}
+.aw-d{font-family:var(--mono);font-size:.63rem;color:var(--t4);white-space:nowrap;padding-top:2px;min-width:40px}
+.aw-t{font-size:.82rem;color:var(--t1);font-weight:500;line-height:1.4}
+
+/* =====================================================
+   MOBILE HEADER
+===================================================== */
+.mob-hdr{
+  display:none;position:sticky;top:0;z-index:200;
+  background:rgba(255,255,255,.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border2);padding:12px 18px;
+  align-items:center;justify-content:space-between;
+  box-shadow:0 1px 8px rgba(0,20,60,.07);
+}
+.mob-name{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--t1)}
+.mbtn{
+  background:none;border:1px solid var(--border2);border-radius:var(--rs);
+  padding:7px;color:var(--t2);cursor:pointer;display:flex;align-items:center;
+}
+.ovl{display:none;position:fixed;inset:0;background:rgba(0,10,30,.4);z-index:99}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media(max-width:820px){
+  .sidebar{transform:translateX(-100%);transition:transform .3s ease}
+  .sidebar.open{transform:translateX(0)}
+  .ovl.on{display:block}
+  .mob-hdr{display:flex}
+  .main{margin-left:0}
+  .sec{padding:36px 18px}
+  .about-cols{flex-direction:column-reverse;gap:24px}
+  .about-photo-col{width:100%;display:flex;flex-direction:column;align-items:center}
+  .photo-box{width:150px;height:182px}
+  .rg{grid-template-columns:1fr}
+  .cgrid{grid-template-columns:1fr}
+  .sup-grid{grid-template-columns:1fr}
+  .grant-hero{flex-wrap:wrap}
+}
+
+/* =====================================================
+   REVEAL ANIMATIONS
+===================================================== */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.rv.on{opacity:1;transform:translateY(0)}
+
+/* =====================================================
+   RESEARCH REDESIGN — QUOTE / THEMES / MODAL
+===================================================== */
+.rq{
+  border-left:4px solid var(--ac);padding:18px 26px 18px 38px;
+  background:var(--ac-dim);border-radius:0 var(--r) var(--r) 0;
+  margin-bottom:30px;position:relative;
+}
+.rq::before{
+  content:'\201C';font-family:var(--serif);font-size:5rem;color:var(--ac);
+  line-height:0;position:absolute;top:42px;left:10px;opacity:.22;
+}
+.rq-t{
+  font-family:var(--serif);font-size:1.22rem;font-style:italic;
+  color:var(--t1);line-height:1.7;font-weight:400;
+}
+
+.r-intro{font-size:.96rem;color:var(--t2);line-height:1.82;margin-bottom:32px}
+.r-intro p+p{margin-top:14px}
+.r-intro strong{color:var(--t1)}
+
+.theme{
+  border:1px solid var(--border2);border-radius:var(--r);
+  padding:26px 28px;margin-bottom:18px;background:var(--bgcard);box-shadow:var(--sh);
+}
+.theme-h{display:flex;gap:18px;align-items:flex-start;margin-bottom:18px}
+.theme-n{
+  font-family:var(--serif);font-size:3.4rem;font-weight:600;line-height:1;
+  color:var(--ac);opacity:.15;flex-shrink:0;min-width:52px;user-select:none;
+}
+.theme-t{font-family:var(--serif);font-size:1.3rem;font-weight:500;color:var(--t1);margin-bottom:6px}
+.theme-d{font-size:.82rem;color:var(--t3);line-height:1.72}
+.theme-d strong{color:var(--t2)}
+
+.stopic-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+.stopic{
+  background:var(--bg0);border:1px solid var(--border2);border-radius:var(--rs);
+  padding:15px 16px;cursor:pointer;transition:all var(--tr);
+  display:flex;flex-direction:column;gap:6px;
+}
+.stopic:hover{border-color:var(--ac-border);background:var(--bgcard-h);
+  transform:translateY(-2px);box-shadow:var(--sh-h)}
+.stopic-ic{font-size:1.35rem;display:block}
+.stopic-title{font-size:.83rem;font-weight:600;color:var(--t1);line-height:1.38;flex:1}
+.stopic-link{
+  font-size:.72rem;color:var(--ac);font-weight:600;margin-top:4px;
+  display:flex;align-items:center;gap:3px;
+}
+
+.stopic.seeking{
+  background:var(--bg0);border:1.5px dashed rgba(0,0,0,.13);
+  cursor:default;
+}
+.stopic.seeking:hover{transform:none;box-shadow:none;border-color:rgba(0,0,0,.13)}
+.seek-badge{
+  display:inline-flex;font-size:.61rem;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;padding:2px 7px;border-radius:4px;
+  background:var(--warm-dim);color:var(--warm);
+  border:1px solid rgba(180,83,9,.2);margin-bottom:4px;
+}
+
+.collab-cta{
+  margin-top:24px;padding:22px 26px;
+  background:linear-gradient(130deg,var(--ac-dim) 0%,var(--ac2-dim) 100%);
+  border:1px solid var(--ac-border);border-radius:var(--r);
+  display:flex;gap:16px;align-items:flex-start;
+}
+.collab-cta-icon{font-size:1.7rem;flex-shrink:0;margin-top:2px}
+.collab-cta-text{font-size:.9rem;color:var(--t1);line-height:1.78}
+.collab-cta-text strong{color:var(--ac)}
+
+/* ── Modal ── */
+.m-ovl{
+  display:none;position:fixed;inset:0;background:rgba(0,15,40,.52);
+  z-index:500;backdrop-filter:blur(5px);
+  align-items:center;justify-content:center;padding:20px;
+}
+.m-ovl.open{display:flex}
+.m-box{
+  background:var(--bg1);border-radius:var(--r);
+  width:100%;max-width:760px;max-height:88vh;
+  display:flex;flex-direction:column;
+  box-shadow:0 24px 70px rgba(0,15,40,.2);
+  animation:m-in .2s ease;
+}
+@keyframes m-in{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.m-hdr{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+  padding:20px 26px 16px;border-bottom:1px solid var(--border2);flex-shrink:0;
+}
+.m-title{font-family:var(--serif);font-size:1.5rem;font-weight:500;color:var(--t1)}
+.m-desc-text{font-size:.77rem;color:var(--t3);margin-top:3px;line-height:1.55;max-width:580px}
+.m-close{
+  width:30px;height:30px;border-radius:50%;background:var(--bg2);
+  border:1px solid var(--border2);color:var(--t3);font-size:1rem;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:all var(--tr);margin-top:2px;
+}
+.m-close:hover{background:var(--warm-dim);color:var(--warm);border-color:rgba(180,83,9,.2)}
+.m-body{overflow-y:auto;padding:20px 26px 26px;flex:1}
+.m-body::-webkit-scrollbar{width:4px}
+.m-body::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+.m-count{
+  font-size:.69rem;color:var(--t4);margin-bottom:14px;
+  font-family:var(--mono);padding-bottom:10px;border-bottom:1px solid var(--border2);
+}
+.m-empty{text-align:center;padding:40px 20px;color:var(--t3)}
+.m-empty-icon{font-size:2.5rem;margin-bottom:12px}
+.m-empty p{font-size:.87rem;line-height:1.7}
+
+@media(max-width:820px){
+  .stopic-grid{grid-template-columns:1fr}
+  .theme{padding:18px 16px}
+  .theme-h{gap:10px}
+  .theme-n{font-size:2.4rem;min-width:40px}
+  .m-box{max-height:94vh}
+  .m-hdr,.m-body{padding-left:18px;padding-right:18px}
+  .collab-cta{flex-direction:column;gap:10px}
+}
+
+
+/* =====================================================
+   OPPORTUNITIES SECTION
+===================================================== */
+.opp-notice{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:18px 22px;border-radius:var(--r);
+  background:var(--warm-dim);border:1.5px solid rgba(180,83,9,.3);
+  margin-bottom:28px;
+}
+.opp-notice-ic{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.opp-notice-title{
+  font-weight:700;font-size:.75rem;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--warm);margin-bottom:7px;
+}
+.opp-notice-body{font-size:.88rem;color:var(--t1);line-height:1.7}
+.opp-notice-body a{font-weight:700;color:var(--warm)}
+.form-btn{
+  display:inline-flex;align-items:center;gap:7px;margin-top:12px;
+  padding:9px 18px;background:var(--warm);color:#fff !important;
+  border-radius:var(--rs);font-size:.81rem;font-weight:600;
+  transition:opacity var(--tr);opacity:1 !important;
+}
+.form-btn:hover{opacity:.84 !important}
+
+.opp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.opp-track{
+  background:var(--bgcard);border:1px solid var(--border2);
+  border-radius:var(--r);padding:18px 20px;box-shadow:var(--sh);
+}
+.opp-track-ic{font-size:1.35rem;margin-bottom:8px;display:block}
+.opp-track-title{font-size:.87rem;font-weight:600;color:var(--t1);margin-bottom:5px}
+.opp-track-desc{font-size:.77rem;color:var(--t3);line-height:1.65}
+
+.opp-diversity{
+  margin-top:20px;padding:20px 24px;border-radius:var(--r);
+  background:linear-gradient(130deg,var(--purple-dim) 0%,var(--ac-dim) 100%);
+  border:1px solid rgba(109,40,217,.2);
+  display:flex;gap:14px;align-items:flex-start;
+}
+.opp-diversity-ic{font-size:1.5rem;flex-shrink:0;margin-top:1px}
+.opp-diversity-text{font-size:.88rem;color:var(--t1);line-height:1.78}
+.opp-diversity-text strong{color:var(--purple)}
+
+.opp-philo{
+  margin-top:20px;background:var(--bgcard);border:1px solid var(--border2);
+  border-radius:var(--r);padding:24px 26px;box-shadow:var(--sh);
+}
+.opp-traits{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+.opp-trait{
+  display:flex;align-items:flex-start;gap:10px;padding:12px 14px;
+  background:var(--bg0);border:1px solid var(--border2);border-radius:var(--rs);
+}
+.opp-trait-ic{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.opp-trait-title{font-size:.8rem;font-weight:600;color:var(--t1);margin-bottom:2px}
+.opp-trait-desc{font-size:.73rem;color:var(--t3);line-height:1.5}
+
+.opp-req{
+  margin-top:16px;padding:14px 18px;border-radius:var(--rs);
+  background:var(--ac-dim);border:1px solid var(--ac-border);border-left:3px solid var(--ac);
+}
+.opp-req-title{
+  font-size:.7rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--ac);margin-bottom:5px;
+}
+.opp-req-body{font-size:.85rem;color:var(--t1);line-height:1.75}
+
+.opp-testi{
+  margin-top:18px;display:flex;gap:14px;align-items:center;
+  padding:16px 20px;background:var(--bgcard);border:1px solid var(--border2);
+  border-radius:var(--r);box-shadow:var(--sh);transition:all var(--tr);
+}
+.opp-testi:hover{border-color:var(--ac-border);box-shadow:var(--sh-h)}
+.opp-testi-ic{font-size:1.5rem;flex-shrink:0}
+.opp-testi-text{flex:1}
+.opp-testi-title{font-size:.87rem;font-weight:600;color:var(--t1);margin-bottom:4px}
+.opp-testi-body{font-size:.78rem;color:var(--t3);line-height:1.6}
+.opp-testi-link{
+  font-size:.77rem;color:var(--ac);font-weight:600;
+  display:inline-flex;align-items:center;gap:4px;margin-top:5px;
+}
+
+@media(max-width:820px){
+  .opp-grid{grid-template-columns:1fr}
+  .opp-traits{grid-template-columns:1fr}
+  .opp-philo{padding:18px 16px}
+  .opp-notice{flex-direction:column;gap:10px}
+}
+
+
+/* =====================================================
+   ABOUT — FLOAT PHOTO + CTA BLOCKS
+===================================================== */
+.about-float-wrap { overflow:hidden }
+.photo-float{
+  float:left;margin:4px 30px 20px 0;width:176px;
+}
+.photo-float .photo-box{width:176px;height:214px}
+.photo-float .photo-caption{
+  font-size:.67rem;color:var(--t4);
+  text-align:center;margin-top:8px;line-height:1.4;
+}
+.about-float-wrap .bio{font-size:.96rem;color:var(--t2);line-height:1.82}
+.about-float-wrap .bio p+p{margin-top:14px}
+.about-float-wrap .bio strong{color:var(--t1)}
+
+.about-ctas{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:14px;margin-top:28px;clear:both;
+}
+.about-cta{
+  display:flex;align-items:center;gap:14px;
+  padding:20px 22px;background:var(--bgcard);
+  border:1.5px solid var(--border2);border-radius:var(--r);
+  box-shadow:var(--sh);transition:all var(--tr);color:inherit;
+}
+.about-cta:hover{
+  border-color:var(--ac-border);box-shadow:var(--sh-h);
+  transform:translateY(-2px);opacity:1;
+}
+.about-cta-icon{font-size:1.7rem;flex-shrink:0}
+.about-cta-content{flex:1}
+.about-cta-title{font-size:.9rem;font-weight:600;color:var(--t1);margin-bottom:4px}
+.about-cta-desc{font-size:.75rem;color:var(--t3);line-height:1.55}
+.about-cta-arrow{font-size:1.1rem;color:var(--ac);flex-shrink:0;font-weight:700}
+
+@media(max-width:820px){
+  .photo-float{float:none;width:140px;margin:0 auto 20px;display:block}
+  .photo-float .photo-box{width:140px;height:170px}
+  .about-ctas{grid-template-columns:1fr}
+}
+
+</style>
+</head>
+
+<body>
+<!-- Mobile header -->
+<header class="mob-hdr">
+  <span class="mob-name">Deval Mehta, PhD</span>
+  <button class="mbtn" id="mbtn" aria-label="Open menu">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+</header>
+
+<div class="ovl" id="ovl"></div>
+
+<div class="layout">
+
+<!-- ========= SIDEBAR ========= -->
+<aside class="sidebar" id="sidebar">
+  <div class="profile-area">
+    <div class="avatar-wrap">
+      <div class="avatar-ring"></div>
+      <div class="avatar">DM</div>
+    </div>
+    <h1 class="pname">Deval Mehta<em>PhD</em></h1>
+    <p class="ptitle">Senior Lecturer · Digital Health</p>
+    <p class="paffil">RMIT University</p>
+    <p class="ploc">&#128205; Melbourne, Australia</p>
+
+    <div class="socials">
+      <a href="mailto:deval.mehta@rmit.edu.au" class="s-btn" title="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/mehtadeval" target="_blank" class="s-btn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="https://scholar.google.com" target="_blank" class="s-btn" title="Google Scholar">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+      </a>
+      <a href="https://github.com/deval-mehta" target="_blank" class="s-btn" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-label">Navigate</div>
+    <a href="#about"        class="nl active"  data-s="about">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>About
+    </a>
+    <a href="#news"         class="nl" data-s="news">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0-2 2zM4 22V4"/></svg>News
+    </a>
+    <a href="#research"     class="nl" data-s="research">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v8l3 3"/><path d="M3.05 11a9 9 0 1 0 .5-2"/><path d="m2 2 2 2"/></svg>Research
+    </a>
+    <a href="#students"     class="nl" data-s="students">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>Opportunities
+    </a>
+    <a href="#grants"       class="nl" data-s="grants">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>Grants
+    </a>
+    <a href="#patents"      class="nl" data-s="patents">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>Patents
+    </a>
+    <a href="#contact"      class="nl" data-s="contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Contact
+    </a>
+  </nav>
+
+  <div class="sb-footer">Last updated &middot; July 2026</div>
+</aside>
+
+<!-- ========= MAIN CONTENT ========= -->
+<main class="main">
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="sec">
+  <div class="sh"><h2 class="st">About</h2><div class="sl"></div></div>
+
+  <!-- Float layout: photo left, text wraps right -->
+  <div class="about-float-wrap rv">
+    <div class="photo-float">
+      <!--
+        TO ADD YOUR PHOTO:
+        1. Upload photo (e.g. photo.jpg) to your GitHub repo root
+        2. Replace the .photo-fallback div with: <img src="photo.jpg" alt="Deval Mehta">
+      -->
+      <div class="photo-box">
+        <div class="photo-fallback">
+          <span>DM</span>
+          <small>Add your<br>photo here</small>
+        </div>
+      </div>
+      <p class="photo-caption">Deval Mehta, PhD<br>RMIT University</p>
+    </div>
+
+    <div class="bio">
+      <p>I am a <strong>Senior Lecturer in Digital Health</strong> at the School of Computing Technologies at <strong>RMIT University</strong>. I am an interdisciplinary research leader with academic, clinical, and industry experience in developing <strong>Translational AI systems for healthcare</strong>. My expertise spans <strong>multimodal learning, foundation AI models, LLMs</strong>, and clinician-in-the-loop design for diverse healthcare problems.</p>
+      <p>Before joining RMIT in July 2026, I was a <strong>Research Fellow</strong> at the Department of Data Science &amp; AI at <strong>Monash University</strong> from 2021&ndash;2026, where I also co-founded the <strong>Augmented Intelligence and Multimodal Analytics (AIM) for Health Lab</strong> at the Faculty of IT in 2023.</p>
+      <p>I have also had <strong>2.5 years of industry research experience</strong> post my PhD at <strong>IBM Research Labs</strong> in Australia and <strong>Panasonic R&amp;D Center</strong> in Singapore. I completed my <strong>PhD</strong> from the School of Electrical and Electronic Engineering at <strong>Nanyang Technological University</strong> in 2019.</p>
+      <p>My full CV is available <a href="CV-Deval_Mehta.pdf" target="_blank"><strong>here</strong></a>.</p>
+    </div>
+  </div>
+
+  <!-- ── Highlight CTA blocks ── -->
+  <div class="about-ctas rv">
+    <a href="#research" class="about-cta">
+      <div class="about-cta-icon">&#128300;</div>
+      <div class="about-cta-content">
+        <div class="about-cta-title">Research &amp; Collaborative Opportunities</div>
+        <div class="about-cta-desc">Explore my research themes across technical AI advancements, healthcare domains, and patient-centred design</div>
+      </div>
+      <div class="about-cta-arrow">&#8594;</div>
+    </a>
+    <a href="#students" class="about-cta">
+      <div class="about-cta-icon">&#127891;</div>
+      <div class="about-cta-content">
+        <div class="about-cta-title">Student &amp; Postdoc Opportunities</div>
+        <div class="about-cta-desc">Highly motivated researchers looking to make an impact in Applied AI for Healthcare</div>
+      </div>
+      <div class="about-cta-arrow">&#8594;</div>
+    </a>
+  </div>
+</section>
+
+<!-- ===== NEWS ===== -->
+<section id="news" class="sec">
+  <div class="sh"><h2 class="st">News</h2><div class="sl"></div></div>
+  <div class="news-list">
+    <div class="ni aw rv"><div class="nd">2026</div><div class="nc"><div class="nt">Early Career Researcher Award &mdash; Australian Academy of Science, Australia&ndash;India Strategic Research Fund</div><div class="nx">AUD $13,500 &middot; Lead CI</div></div><span class="vb aw">Award</span></div>
+    <div class="ni rv"><div class="nd">2025</div><div class="nc"><div class="nt">Paper accepted at EMNLP 2025 (Main Track)</div><div class="nx">"WISE: Weak-Supervision-Guided Step-by-Step Explanations for Multimodal LLMs in Image Classification"</div></div><span class="vb">NLP</span></div>
+    <div class="ni rv"><div class="nd">2025</div><div class="nc"><div class="nt">Paper accepted at ACL 2025 (Main Track)</div><div class="nx">"Enhancing Interpretable Image Classification Through LLM Agents and Conditional Concept Bottleneck Models"</div></div><span class="vb">NLP</span></div>
+    <div class="ni kn rv"><div class="nd">2025</div><div class="nc"><div class="nt">Keynote at NVIDIA AI Day Sydney 2025</div><div class="nx">"Medical Foundation Models for Retina, Skin, and Brain at Population Scale"</div></div><span class="vb top">Keynote</span></div>
+    <div class="ni gr rv"><div class="nd">2025</div><div class="nc"><div class="nt">NIF Infrastructure Grant awarded &mdash; AUD $943,325</div><div class="nx">Neuroimaging Foundation Model Infrastructure for Research and Clinical Translation (2025&ndash;27)</div></div><span class="vb clin">Grant</span></div>
+    <div class="ni gr rv"><div class="nd">2025</div><div class="nc"><div class="nt">NVIDIA Academic Grant &mdash; AUD $96,700 / 32K A100 GPU hours</div><div class="nx">MRI Foundation Model for Neurology Imaging and Clinical Translation</div></div><span class="vb clin">Grant</span></div>
+    <div class="ni rv"><div class="nd">2025</div><div class="nc"><div class="nt">Published in JEADV (Jan 2025) &mdash; Top Q1 Clinical Dermatology Journal</div><div class="nx">"Large Multi-task Vision AI Model for Dermatology" (10% acceptance rate)</div></div><span class="vb clin">Clinical</span></div>
+    <div class="ni rv"><div class="nd">2025</div><div class="nc"><div class="nt">Australia Provisional Patent Filed &mdash; "Method and System for De-identified Motion Tracking"</div></div><span class="vb top">Patent</span></div>
+    <div class="ni rv"><div class="nd">2025</div><div class="nc"><div class="nt">Keynote at SHARE 2025 &mdash; "Towards Out-of-Hospital Monitoring of Epilepsy Patients"</div></div><span class="vb top">Keynote</span></div>
+    <div class="ni aw rv"><div class="nd">2023</div><div class="nc"><div class="nt">Top 3 Finalist &mdash; Victoria Melanoma Young Researcher Award (Morgan Mansell Prize)</div></div><span class="vb aw">Award</span></div>
+    <div class="ni aw rv"><div class="nd">2023</div><div class="nc"><div class="nt">Selected as one of top 200 early career scientists globally &mdash; 10th Heidelberg Laureate Forum</div><div class="nx">Sole Australian recipient of AAS travel grant for HLF</div></div><span class="vb aw">Award</span></div>
+  </div>
+</section>
+
+<!-- ===== RESEARCH ===== -->
+<section id="research" class="sec">
+  <div class="sh">
+    <h2 class="st" style="font-size:1.65rem;white-space:normal;line-height:1.2">
+      Research Interests &amp;<br>Collaborative Opportunities
+    </h2>
+    <div class="sl" style="min-width:30px"></div>
+  </div>
+
+  <!-- Quote -->
+  <div class="rq rv">
+    <p class="rq-t">The design of futuristic healthcare AI technologies requires a highly multi-disciplinary framework and end-users should be at the core of it.</p>
+  </div>
+
+  <!-- Intro -->
+  <div class="r-intro rv">
+    <p>I focus on developing AI systems that are <strong>actually translatable in clinical practice</strong>, and for this I believe a huge collaboration is required between different disciplines &mdash; including clinicians, health economists, social scientists, human-computer interaction researchers, ethical scientists, sustainability and environment researchers, and most importantly <strong>patients and end-users themselves</strong>.</p>
+    <p>Thus, I collaborate with a range of discipline scientists from different institutions, hospital organizations, and patient community organizations, and have developed the following themes of research:</p>
+  </div>
+
+  <!-- ── Theme 01: Technical Advancements ── -->
+  <div class="theme rv">
+    <div class="theme-h">
+      <span class="theme-n">01</span>
+      <div>
+        <div class="theme-t">Technical Advancements</div>
+        <div class="theme-d">My research has focused primarily on <strong>multimodal learning</strong> with explainability and interpretability as a major component. More recently, with the advent of LLMs and Agentic AI systems, it has focused on mitigating hallucinations and grounding the knowledge of these systems in <strong>clinical evidence and guidelines</strong>. I work across four key methodology and dataset dimensions:</div>
+      </div>
+    </div>
+    <div class="stopic-grid">
+      <div class="stopic" onclick="openModal('activity')">
+        <span class="stopic-ic">&#127939;</span>
+        <div class="stopic-title">Human Activity Monitoring &amp; Action Recognition</div>
+        <div class="stopic-link">View Papers &#8594;</div>
+      </div>
+      <div class="stopic" onclick="openModal('vlm')">
+        <span class="stopic-ic">&#128065;&#65039;</span>
+        <div class="stopic-title">Vision-Language Models</div>
+        <div class="stopic-link">View Papers &#8594;</div>
+      </div>
+      <div class="stopic" onclick="openModal('foundation')">
+        <span class="stopic-ic">&#129302;</span>
+        <div class="stopic-title">Foundation Models &amp; Agentic Systems</div>
+        <div class="stopic-link">View Papers &#8594;</div>
+      </div>
+      <div class="stopic" onclick="openModal('concept')">
+        <span class="stopic-ic">&#129513;</span>
+        <div class="stopic-title">Interpretable Concept-Based Learning</div>
+        <div class="stopic-link">View Papers &#8594;</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Theme 02: Healthcare Domains ── -->
+  <div class="theme rv">
+    <div class="theme-h">
+      <span class="theme-n">02</span>
+      <div>
+        <div class="theme-t">Healthcare Domains</div>
+        <div class="theme-d">The translational nature of my AI advancements is grounded and developed closely with <strong>clinical partners who are domain experts</strong>. I have specifically built four active research pillars, and am actively expanding into new areas where I am looking for collaborative partnerships:</div>
+      </div>
+    </div>
+    <div class="stopic-grid">
+      <div class="stopic" onclick="openModal('neurology')">
+        <span class="stopic-ic">&#129504;</span>
+        <div class="stopic-title">AI for Neurology</div>
+        <div class="stopic-link">View Papers &#8594;</div>
+      </div>
+      <div class="stopic" onclick="openModal('dermatology')">
+        <span class="stopic-ic">&#128302;</span>
+        <div class="stopic-title">AI for Dermatology</div>
+        <div class="stopic-link">View Papers &#8594;</div>
+      </div>
+      <div class="stopic" onclick="openModal('histopathology')">
+        <span class="stopic-ic">&#129514;</span>
+        <div class="stopic-title">AI for Histopathology Analysis</div>
+        <div class="stopic-link">View Papers &#8594;</div>
+      </div>
+      <div class="stopic" onclick="openModal('hospital')">
+        <span class="stopic-ic">&#127973;&#65039;</span>
+        <div class="stopic-title">AI for Diverse Hospital Settings</div>
+        <div class="stopic-link">View Papers &#8594;</div>
+      </div>
+      <div class="stopic seeking">
+        <div><span class="seek-badge">Expanding</span></div>
+        <span class="stopic-ic">&#10084;&#65039;</span>
+        <div class="stopic-title">AI for Cardiology</div>
+        <div style="font-size:.72rem;color:var(--t4)">Actively seeking partnerships</div>
+      </div>
+      <div class="stopic seeking">
+        <div><span class="seek-badge">Expanding</span></div>
+        <span class="stopic-ic">&#9889;</span>
+        <div class="stopic-title">AI for Human Kinetics &amp; Wearables</div>
+        <div style="font-size:.72rem;color:var(--t4)">Actively seeking partnerships</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Theme 03: Patient & Clinician-Centred Design ── -->
+  <div class="theme rv">
+    <div class="theme-h">
+      <span class="theme-n">03</span>
+      <div>
+        <div class="theme-t">Patient &amp; Clinician-Centred Design</div>
+        <div class="theme-d">I have made several initiatives with <strong>social science researchers</strong> and patient and community organizations to co-design futuristic AI systems so they can be better accepted and adapted in practice &mdash; not limited to just research. Understanding end-users&rsquo; perspectives on these technologies is really important. Some of my research on this is here:</div>
+      </div>
+    </div>
+    <div class="stopic-grid" style="grid-template-columns:1fr">
+      <div class="stopic" onclick="openModal('patient')"
+           style="flex-direction:row;align-items:center;gap:16px;padding:18px 20px">
+        <span class="stopic-ic" style="font-size:1.6rem;flex-shrink:0">&#128101;</span>
+        <div style="flex:1">
+          <div class="stopic-title" style="font-size:.9rem">Co-design, Adoption &amp; Ethics of Healthcare AI</div>
+          <div style="font-size:.73rem;color:var(--t3);margin-top:3px;font-weight:400">
+            Patient organizations &middot; Social scientists &middot; Clinicians &middot; HCI researchers
+          </div>
+        </div>
+        <div class="stopic-link" style="margin-top:0;flex-shrink:0">View Publications &#8594;</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Collaboration CTA ── -->
+  <div class="collab-cta rv">
+    <div class="collab-cta-icon">&#129309;</div>
+    <div class="collab-cta-text">
+      <strong>I am always looking for collaborations from diverse disciplines</strong> who are interested in genuinely making translatable AI systems for healthcare. No matter which discipline you come from &mdash; please reach out with a problem or interest that you may need my experience on, and I am always happy to collaborate.
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ===== STUDENTS/POSTDOCS ===== -->
+<section id="students" class="sec">
+  <div class="sh">
+    <h2 class="st" style="white-space:normal;font-size:1.65rem;line-height:1.2">
+      Student &amp; Postdoc Opportunities
+    </h2>
+    <div class="sl" style="min-width:30px"></div>
+  </div>
+
+  <!-- ── Important Notice ── -->
+  <div class="opp-notice rv">
+    <div class="opp-notice-ic">&#128226;</div>
+    <div>
+      <div class="opp-notice-title">Important Notice Before Reaching Out</div>
+      <div class="opp-notice-body">
+        <p>If you are genuinely interested in joining my group, please fill out the application form below. Please <strong>do not send a generic email with your CV</strong> — it will not be responded to.</p>
+        <!-- Replace href="#" with your Google Form URL when ready -->
+        <a href="#" target="_blank" class="form-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="12" x2="12" y2="18"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          Fill out the Application Form
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Intro ── -->
+  <div class="bio rv" style="max-width:720px">
+    <p>I am always on the lookout for <strong>highly determined and self-motivated students and postdocs</strong> who want to make a real impact in Applied AI for Healthcare. The research topics are intentionally diverse and could range from <strong>core technical contributions</strong>, to <strong>clinical application studies</strong> (students from clinical backgrounds who want to explore AI in their domain), to <strong>Human-Computer Interaction studies</strong> where co-design and end-user perspectives are the primary aim.</p>
+    <p style="margin-top:14px">Additionally, if you come from an <strong>unconventional background</strong> but are eager to explore this field, I am also happy to consider your application &mdash; and may in fact view it positively.</p>
+  </div>
+
+  <!-- ── Research tracks ── -->
+  <div style="margin-top:30px" class="rv">
+    <p class="sst">Open Research Tracks</p>
+    <div class="opp-grid">
+      <div class="opp-track">
+        <span class="opp-track-ic">&#128187;</span>
+        <div class="opp-track-title">Core Technical Contributions</div>
+        <div class="opp-track-desc">Developing novel AI algorithms, architectures, and methodologies &mdash; multimodal learning, foundation models, LLMs, agentic systems, and interpretable AI.</div>
+      </div>
+      <div class="opp-track">
+        <span class="opp-track-ic">&#127973;&#65039;</span>
+        <div class="opp-track-title">Clinical Application Studies</div>
+        <div class="opp-track-desc">For students with a clinical or biomedical background who want to explore how AI can be applied to their specific domain of expertise alongside technical collaborators.</div>
+      </div>
+      <div class="opp-track">
+        <span class="opp-track-ic">&#129489;&#8205;&#129305;</span>
+        <div class="opp-track-title">Human-Computer Interaction</div>
+        <div class="opp-track-desc">Co-design, usability research, and studies of end-user perspectives on healthcare AI. Understanding how patients, clinicians, and carers interact with and relate to AI systems.</div>
+      </div>
+      <div class="opp-track" style="border-color:var(--ac-border);background:var(--ac-dim)">
+        <span class="opp-track-ic">&#127775;</span>
+        <div class="opp-track-title">Unconventional Backgrounds Welcome</div>
+        <div class="opp-track-desc">Coming from a background that doesn&rsquo;t fit neatly into the above? I actively value diverse and non-traditional pathways &mdash; please reach out with your unique perspective.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Diversity statement ── -->
+  <div class="opp-diversity rv">
+    <div class="opp-diversity-ic">&#9876;&#65039;</div>
+    <div class="opp-diversity-text">
+      <strong>Women and individuals from all gender identities and underrepresented backgrounds are strongly encouraged to reach out.</strong> Diversity of thought, lived experience, and perspective makes research stronger &mdash; and computing as a field has significant progress still to make on this front. I am committed to building an inclusive, equitable, and supportive research environment.
+    </div>
+  </div>
+
+  <!-- ── Supervision Philosophy ── -->
+  <div class="opp-philo rv">
+    <p class="sst">Supervision Philosophy</p>
+    <div style="font-size:.96rem;color:var(--t2);line-height:1.82;margin-top:10px">
+      <p>I am a <strong>highly flexible supervisor</strong> who understands that students and postdocs work in diverse ways and need different kinds of support at different times. My goal is to ensure that after your time with me, I can genuinely help you achieve your goals &mdash; whether that is in <strong>industry or academia</strong>, drawing on my prior experience in both worlds.</p>
+    </div>
+    <div class="opp-traits">
+      <div class="opp-trait">
+        <span class="opp-trait-ic">&#128257;</span>
+        <div>
+          <div class="opp-trait-title">Flexible &amp; Adaptive</div>
+          <div class="opp-trait-desc">I adapt to diverse working styles, schedules, and individual learning needs</div>
+        </div>
+      </div>
+      <div class="opp-trait">
+        <span class="opp-trait-ic">&#127919;</span>
+        <div>
+          <div class="opp-trait-title">Goal-Oriented Mentoring</div>
+          <div class="opp-trait-desc">I help you build toward your specific career ambitions from day one</div>
+        </div>
+      </div>
+      <div class="opp-trait">
+        <span class="opp-trait-ic">&#127759;</span>
+        <div>
+          <div class="opp-trait-title">Industry &amp; Academia</div>
+          <div class="opp-trait-desc">Prior experience in both domains &mdash; I prepare you comprehensively for either path</div>
+        </div>
+      </div>
+      <div class="opp-trait">
+        <span class="opp-trait-ic">&#128226;</span>
+        <div>
+          <div class="opp-trait-title">Open &amp; Accessible</div>
+          <div class="opp-trait-desc">My door is always open for questions, discussions, and support</div>
+        </div>
+      </div>
+    </div>
+    <div class="opp-req">
+      <div class="opp-req-title">The One Requirement</div>
+      <div class="opp-req-body">Students must be <strong>genuinely self-motivated</strong> and driven to make a meaningful impact. This means embracing self-directed learning, experimentation, a problem-solving mindset, and the resilience and commitment to rise up to the challenges and tasks ahead.</div>
+    </div>
+  </div>
+
+  <!-- ── Testimonials ── -->
+  <!-- Replace href="#" with your testimonials page URL when ready -->
+  <a href="#" target="_blank" class="opp-testi rv" style="color:inherit;display:flex">
+    <div class="opp-testi-ic">&#128172;</div>
+    <div class="opp-testi-text">
+      <div class="opp-testi-title">What Previous Students Say</div>
+      <div class="opp-testi-body">Testimonials from my PhD students and supervised researchers are available at the link below. You are free &mdash; and encouraged &mdash; to contact them directly to learn more about my supervision style, mentoring, and support.</div>
+      <span class="opp-testi-link">Read testimonials &#8594;</span>
+    </div>
+  </a>
+
+</section>
+
+<!-- ===== GRANTS ===== -->
+<section id="grants" class="sec">
+  <div class="sh"><h2 class="st">Grants &amp; Funding</h2><div class="sl"></div></div>
+
+  <div class="grant-hero rv">
+    <div><div class="gfund">AUD $1.755M</div><div class="glab">Total awarded research funding as CI</div></div>
+    <div class="gdiv"></div>
+    <div><div style="font-family:var(--serif);font-size:1.55rem;font-weight:600;color:var(--ac)">8</div><div class="glab">Awarded grants</div></div>
+    <div class="gdiv"></div>
+    <div><div style="font-family:var(--serif);font-size:1.55rem;font-weight:600;color:var(--purple)">2</div><div class="glab">Major grants under review</div></div>
+  </div>
+
+  <p class="sst" style="margin-bottom:12px">Awarded Grants</p>
+  <div class="glist">
+    <div class="gi rv"><div class="ga">$943K</div><div class="gc"><div class="gtt">Neuroimaging Foundation Model Infrastructure for Research and Clinical Translation</div><div class="gm">National Imaging Facility (NIF) Infrastructure Grant &middot; 2025&ndash;27 &middot; CI: Ge, Z., D. Mehta, Kwan, P., Meng, L.</div></div></div>
+    <div class="gi rv"><div class="ga">$564K</div><div class="gc"><div class="gtt">Collaboration with Optiscan Imaging</div><div class="gm">Digital Health CRC-P &middot; 2024&ndash;27 &middot; CI: Ge, Z., George, Y., D. Mehta</div></div></div>
+    <div class="gi rv"><div class="ga">$97K</div><div class="gc"><div class="gtt">MRI Foundation Model for Neurology Imaging and Clinical Translation</div><div class="gm">NVIDIA Academic Grant (32K A100 GPU hours) &middot; 2025&ndash;26 &middot; CI: Kwan, P., D. Mehta, Ge, Z.</div></div></div>
+    <div class="gi rv"><div class="ga">$50K</div><div class="gc"><div class="gtt">A Digital Risk Stratification Tool to Reduce Repeat Seizure Presentations to Emergency Departments</div><div class="gm">AI in Health Seed Grant Scheme &middot; 2025&ndash;26 &middot; Lead CI: D. Mehta, Foster, E., Kwan, P.</div></div></div>
+    <div class="gi rv"><div class="ga">$34K</div><div class="gc"><div class="gtt">Multimodal Federated Learning for Epilepsy Care and Management</div><div class="gm">Faculty of IT Seed Grant &middot; 2024&ndash;25 &middot; CI: George, Y., D. Mehta, Kwan, P.</div></div></div>
+    <div class="gi rv"><div class="ga">$30K</div><div class="gc"><div class="gtt">HandovAR: AI-facilitated Handover System via Augmented Reality for ICU Nurses</div><div class="gm">Faculty of IT Seed Grant &middot; 2025&ndash;26 &middot; CI: Liu, J., Haryanto, A., D. Mehta, Satriadi, K.</div></div></div>
+    <div class="gi rv"><div class="ga">$19K</div><div class="gc"><div class="gtt">Challenges and Opportunities for Australian Elderly Communities in Medical AI Adoption</div><div class="gm">University of Melbourne Arts Collaborative Research Seed Fund &middot; 2022&ndash;23</div></div></div>
+    <div class="gi rv"><div class="ga">$13.5K</div><div class="gc"><div class="gtt">Improving Skin Care Through AI for Rural Communities in Australia and India</div><div class="gm">Australian Academy of Science Australia&ndash;India Strategic Research Fund &middot; 2026 &middot; Lead CI: D. Mehta</div></div></div>
+  </div>
+
+  <div style="margin-top:24px">
+    <p class="sst">Grants Under Review</p>
+    <div class="glist">
+      <div class="gi rv" style="border-color:rgba(109,40,217,.18)"><div class="ga" style="color:var(--purple)">MRFF</div><div class="gc"><div class="gtt">Deep Learning For Epilepsy Surgery</div><div class="gm">MRFF EMCR&rsquo;25 &middot; Submitted July 2025 &middot; CI: Sinclair, B., D. Mehta, O&rsquo;Brien, T., Kaestner, E.</div></div></div>
+      <div class="gi rv" style="border-color:rgba(109,40,217,.18)"><div class="ga" style="color:var(--purple)">AWS</div><div class="gc"><div class="gtt">Orchestrated Multi-Modal Agentic AI for Infection Prevention and Control in Residential Aged Care</div><div class="gm">Amazon Web Services Agentic AI &middot; Submitted Nov 2025 &middot; CI: Tyagi, S., D. Mehta, Peleg, A.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PATENTS ===== -->
+<section id="patents" class="sec">
+  <div class="sh"><h2 class="st">Patents</h2><div class="sl"></div></div>
+  <div class="pat-list">
+    <div class="pat-i rv"><div><div class="pat-t">"Method and System for De-identified Motion Tracking"</div><div class="pat-m">Deval Mehta, Talha Ilyas, Zongyuan Ge &middot; Australia Provisional Patent 2025905326 &middot; Nov 2025</div></div><span class="vb">AU</span></div>
+    <div class="pat-i rv"><div><div class="pat-t">"Multimodal Data Collection And Diagnosis Of Rare Ocular Diseases"</div><div class="pat-m">Deval Mehta, Yiwen Jiang, Zongyuan Ge, Minguang He, Jason Sun &middot; US Patent App. WO2024US59516 &middot; Jan 2024</div></div><span class="vb top">US</span></div>
+    <div class="pat-i rv"><div><div class="pat-t">"Out of Distribution Detection for Long-tailed and Fine-grained Datasets"</div><div class="pat-m">Deval Mehta, Toan Nguyen, Yaniv Gal, Zongyuan Ge, Paul Bonnington &middot; New Zealand Patent App. 786708 &middot; Mar 2022</div></div><span class="vb clin">NZ</span></div>
+    <div class="pat-i rv"><div><div class="pat-t">"Privacy-preserving motion analysis"</div><div class="pat-m">Umar Asif, Deval Mehta, Stefan von Cavallar, Stefan Harrer, et al. &middot; US Patent App. 17/249,132 &middot; Jan 2021</div></div><span class="vb top">US</span></div>
+    <div class="pat-i rv"><div><div class="pat-t">"Assessing Parkinson&rsquo;s disease symptoms"</div><div class="pat-m">Tian Hao, Jeffrey L. Rogers, Umar Asif, Deval Mehta, et al. &middot; US Patent App. 17/249,412 &middot; Aug 2020</div></div><span class="vb top">US</span></div>
+    <div class="pat-i rv"><div><div class="pat-t">"A High Accuracy Star Tracker Using Running Sequential Angular Match Technique"</div><div class="pat-m">Deval Mehta, Shoushun Chen, Kay Soon Low &middot; Singapore Copyright 10201603223W &middot; April 2016</div></div><span class="vb">SG</span></div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="sec">
+  <div class="sh"><h2 class="st">Contact</h2><div class="sl"></div></div>
+
+  <div class="bio rv" style="margin-bottom:26px;max-width:600px;font-size:.96rem;color:var(--t2);line-height:1.82">
+    <p>Happy to discuss research collaborations, industry partnerships, PhD supervision opportunities, or clinical AI translation projects. Reach out via email or LinkedIn.</p>
+  </div>
+
+  <div class="cgrid rv">
+    <a href="mailto:deval.mehta@rmit.edu.au" class="citem">
+      <div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+      <div><div class="clab">Email</div><div class="cval">deval.mehta@rmit.edu.au</div></div>
+    </a>
+    <a href="https://linkedin.com/in/mehtadeval" target="_blank" class="citem">
+      <div class="cico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div>
+      <div><div class="clab">LinkedIn</div><div class="cval">linkedin.com/in/mehtadeval</div></div>
+    </a>
+    <a href="https://scholar.google.com" target="_blank" class="citem">
+      <div class="cico" style="background:var(--ac2-dim)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--ac2)"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+      <div><div class="clab">Google Scholar</div><div class="cval">View full publication list</div></div>
+    </a>
+    <div class="citem">
+      <div class="cico" style="background:var(--warm-dim)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--warm)"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div><div class="clab">Location</div><div class="cval">RMIT University, Melbourne, Australia</div></div>
+    </div>
+  </div>
+
+  <div style="margin-top:40px" class="rv">
+    <p class="sst">Honours &amp; Awards</p>
+    <div class="aw-list">
+      <div class="aw-i"><div class="aw-d">2026</div><div class="aw-t">Early Career Researcher Award &mdash; Australia&ndash;India Strategic Research Fund, Australian Academy of Science</div></div>
+      <div class="aw-i"><div class="aw-d">2023</div><div class="aw-t">Top 3 Finalist &mdash; Victoria Melanoma Young Researcher Award (Morgan Mansell Prize)</div></div>
+      <div class="aw-i"><div class="aw-d">2023</div><div class="aw-t">Selected as top 200 early career scientist globally &mdash; 10th Heidelberg Laureate Forum (HLF)</div></div>
+      <div class="aw-i"><div class="aw-d">2023</div><div class="aw-t">HLF Travel Grant &mdash; Australian Academy of Science (sole Australian recipient, 1 per year)</div></div>
+      <div class="aw-i"><div class="aw-d">2018</div><div class="aw-t">TOSHIBA Global Intern Award &mdash; Toshiba Devices &amp; Storage Corporation, Tokyo</div></div>
+      <div class="aw-i"><div class="aw-d">2014</div><div class="aw-t">Nanyang Technological University Research Scholarship for PhD (2014&ndash;2018)</div></div>
+      <div class="aw-i"><div class="aw-d">2013</div><div class="aw-t">DAAD WISE Scholarship &mdash; Technical University of Munich, Germany</div></div>
+    </div>
+  </div>
+
+  <div style="margin-top:32px" class="rv">
+    <p class="sst">Keynote Talks</p>
+    <div class="aw-list">
+      <div class="aw-i" style="border-left-color:var(--purple)"><div class="aw-d">2025</div><div class="aw-t">"Medical Foundation Models for Retina, Skin, and Brain at Population Scale" &mdash; NVIDIA AI Day Sydney</div></div>
+      <div class="aw-i" style="border-left-color:var(--purple)"><div class="aw-d">2025</div><div class="aw-t">"Towards Out-of-Hospital Monitoring of Epilepsy Patients" &mdash; SHARE 2025</div></div>
+      <div class="aw-i" style="border-left-color:var(--purple)"><div class="aw-d">2024</div><div class="aw-t">"Getting Artificial Intelligence Ready for Clinic: Revamping AI Models in Dermatology" &mdash; IEEE WA Joint CI/RA Talk</div></div>
+      <div class="aw-i" style="border-left-color:var(--purple)"><div class="aw-d">2023</div><div class="aw-t">"Foundation Models for Skin Lesion Analysis" &mdash; Melanoma Research Victoria Scientific Exchange Meeting</div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ── Paper Modal ── -->
+<div class="m-ovl" id="m-ovl">
+  <div class="m-box" id="m-box">
+    <div class="m-hdr">
+      <div>
+        <div class="m-title" id="m-title"></div>
+        <div class="m-desc-text" id="m-desc-text"></div>
+      </div>
+      <button class="m-close" onclick="closeModal()" aria-label="Close">&#215;</button>
+    </div>
+    <div class="m-body" id="m-body"></div>
+  </div>
+</div>
+
+</div><!-- /layout -->
+
+<script>
+// ── Mobile sidebar ──
+const mbtn = document.getElementById('mbtn');
+const sidebar = document.getElementById('sidebar');
+const ovl = document.getElementById('ovl');
+mbtn.addEventListener('click', () => { sidebar.classList.toggle('open'); ovl.classList.toggle('on'); });
+ovl.addEventListener('click', () => { sidebar.classList.remove('open'); ovl.classList.remove('on'); });
+document.querySelectorAll('.nl').forEach(l => l.addEventListener('click', () => { sidebar.classList.remove('open'); ovl.classList.remove('on'); }));
+
+// ── Active nav on scroll ──
+const secs = document.querySelectorAll('section[id]');
+const nls  = document.querySelectorAll('.nl[data-s]');
+const io   = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      nls.forEach(l => l.classList.remove('active'));
+      const a = document.querySelector(`.nl[data-s="${e.target.id}"]`);
+      if (a) a.classList.add('active');
+    }
+  });
+}, { rootMargin: '-35% 0px -55% 0px' });
+secs.forEach(s => io.observe(s));
+
+// ── Reveal on scroll with stagger ──
+['news-list','pub-list','tlist','glist','pat-list','aw-list'].forEach(cls => {
+  document.querySelectorAll(`.${cls} .rv`).forEach((el, i) => { el.style.transitionDelay = `${i * 50}ms`; });
+});
+const rio = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); rio.unobserve(e.target); } });
+}, { rootMargin: '0px 0px -48px 0px' });
+document.querySelectorAll('.rv').forEach(el => rio.observe(el));
+
+// ─────────────────────────────────────────────
+//  PAPER DATA FOR MODALS
+//  Add / update paper lists here as new papers come in.
+//  Each entry: { title, authors (HTML ok), venue, vtype ('','clin','top','aw'),
+//               year, note (optional), tags (array) }
+// ─────────────────────────────────────────────
+const paperData = {
+
+  activity: {
+    title: 'Human Activity Monitoring & Action Recognition',
+    desc: 'Automated motion analysis, action recognition, and marker-less clinical assessment of human movement for neurological and movement-disorder applications.',
+    papers: [
+      { title: 'Towards automated and marker-less Parkinson disease assessment: predicting UPDRS scores using sit-stand videos',
+        authors: '<strong>D. Mehta*</strong>, Asif, U., Hao, T., Bilal, E., Von Cavallar, S., Harrer, S., Rogers, J.',
+        venue: 'CVPR 2021', vtype: 'top', year: '2021', note: 'First & corresponding author', tags: ["Action Recognition","AI for Parkinson’s"] },
+      { title: 'DeepActsNet: A deep ensemble framework combining features from face, hands, and body for action recognition',
+        authors: 'Asif, U., D. Mehta, Von Cavallar, S., Tang, J., Harrer, S.',
+        venue: 'Pattern Recognition 2023', vtype: 'top', year: '2023', tags: ["Action Recognition","Q1"] },
+      { title: 'Privacy-Preserving Early Detection of Epileptic Seizures in Videos',
+        authors: '<strong>D. Mehta*</strong>, Sivathamboo, S., Simpson, H., Kwan, P., O’Brien, T., Ge, Z.',
+        venue: 'MICCAI 2023', vtype: '', year: '2023', note: '⭐ Top 15% · Early Accept', tags: ["Video Analysis","AI for Epilepsy"] },
+      { title: 'Privacy-Centric Seizure Detection Using Surface Normals, Pose and Segmentation Masks',
+        authors: 'Ponnambalam, K.G., <strong>D. Mehta</strong> (co-senior), et al.',
+        venue: 'AI 2025', vtype: '', year: '2026', tags: ["Video Analysis","Privacy-Preserving","AI for Epilepsy"] }
+    ]
+  },
+
+  vlm: {
+    title: 'Vision-Language Models',
+    desc: 'Combining visual and language understanding for interpretable medical image analysis, concept-guided diagnosis, and clinical report generation.',
+    papers: [
+      { title: 'WISE: Weak-Supervision-Guided Step-by-Step Explanations for Multimodal LLMs in Image Classification',
+        authors: 'Yiwen, J., <strong>D. Mehta*</strong>, Yan, S., Ge, Z.',
+        venue: 'EMNLP 2025', vtype: '', year: '2025', note: 'Supervising author', tags: ["VLMs","Explainability"] },
+      { title: 'Enhancing Interpretable Image Classification Through LLM Agents and Conditional Concept Bottleneck Models',
+        authors: 'Yiwen, J., <strong>D. Mehta*</strong>, W. Fei, Ge, Z.',
+        venue: 'ACL 2025', vtype: '', year: '2025', note: 'Supervising author', tags: ["LLM Agents","Interpretability"] },
+      { title: 'Interpretable Few-Shot Retinal Disease Diagnosis with Concept-Guided Prompting of Vision-Language Models',
+        authors: '<strong>D. Mehta*</strong>, Yiwen, J., Jan, C., He, M., Jadhav, K., Ge, Z.',
+        venue: 'IPMI 2025', vtype: '', year: '2025', tags: ["VLMs","AI for Eye Disease"] },
+      { title: 'Large Multi-task Vision AI Model for Dermatology: Overcoming Critical Challenges in Skin Lesion Diagnosis',
+        authors: '<strong>D. Mehta*</strong>, Primiero, C., Betz-Stablein, B., Nguyen, T.D., Gal, Y., Mar, V., Soyer, H.P., Ge, Z.',
+        venue: 'JEADV 2025', vtype: 'clin', year: 'Feb 2025', note: 'First author · 10% accept rate', tags: ["Vision-Language","AI for Skin"] }
+    ]
+  },
+
+  foundation: {
+    title: 'Foundation Models & Agentic Systems',
+    desc: 'Development and evaluation of large-scale foundation models and AI agents grounded in clinical evidence and guidelines for diverse healthcare tasks.',
+    papers: [
+      { title: 'Knowledge Tree Driven Contextualized Instruction Tuning of Foundation Models for Epilepsy Drug Recommendation',
+        authors: 'Pham, K., <strong>D. Mehta*</strong>, Verspoor, K., Kwan, P., Ge, Z.',
+        venue: 'MICCAI 2025', vtype: '', year: '2025', tags: ["Foundation Models","AI for Epilepsy"] },
+      { title: 'M3CoL: Harnessing Shared Relations via Multimodal Mixup Contrastive Learning for Multimodal Classification',
+        authors: 'R. Kumar, R. Singhal, P. Kulkarni, D. Mehta, K. Jadhav',
+        venue: 'TMLR 2025', vtype: 'top', year: '2025', tags: ["Multimodal Learning","Q1"] },
+      { title: 'Adaptive Transformer Modelling of Density Function for Nonparametric Survival Analysis',
+        authors: 'Zhang, X., D. Mehta, Hu, Y., Zhu, C., Darby, D., Yu, Z., Ge, Z., et al.',
+        venue: 'Machine Learning (JML) 2025', vtype: 'top', year: 'Jan 2025', tags: ["Transformers","AI for Multiple Sclerosis"] }
+    ]
+  },
+
+  concept: {
+    title: 'Interpretable Concept-Based Learning',
+    desc: 'Building AI models where predictions are grounded in human-understandable visual and clinical concepts, enabling transparency and accountability for clinical adoption.',
+    papers: [
+      { title: 'Enhancing Interpretable Image Classification Through LLM Agents and Conditional Concept Bottleneck Models',
+        authors: 'Yiwen, J., <strong>D. Mehta*</strong>, W. Fei, Ge, Z.',
+        venue: 'ACL 2025', vtype: '', year: '2025', note: 'Supervising author', tags: ["Concept-Based","Interpretability"] },
+      { title: 'WISE: Weak-Supervision-Guided Step-by-Step Explanations for Multimodal LLMs in Image Classification',
+        authors: 'Yiwen, J., <strong>D. Mehta*</strong>, Yan, S., Ge, Z.',
+        venue: 'EMNLP 2025', vtype: '', year: '2025', note: 'Supervising author', tags: ["Explainability","Weak Supervision"] },
+      { title: 'Interpretable Few-Shot Retinal Disease Diagnosis with Concept-Guided Prompting of Vision-Language Models',
+        authors: '<strong>D. Mehta*</strong>, Yiwen, J., Jan, C., He, M., Jadhav, K., Ge, Z.',
+        venue: 'IPMI 2025', vtype: '', year: '2025', tags: ["Concept-Based","Few-Shot"] },
+      { title: 'Out-of-distribution detection for long-tailed and fine-grained skin lesion images',
+        authors: '<strong>D. Mehta*</strong>, Gal, Y., Bowling, A., Bonnington, P., Ge, Z.',
+        venue: 'MICCAI 2022', vtype: '', year: '2022', note: '⭐ Top 15% · Early Accept', tags: ["OOD Detection","Interpretability"] }
+    ]
+  },
+
+  neurology: {
+    title: 'AI for Neurology',
+    desc: 'Translational AI systems for epilepsy management, stroke prediction, Parkinson’s assessment, and multiple sclerosis analysis — developed in close collaboration with clinical partners at Monash, Alfred Health, and internationally.',
+    papers: [
+      { title: 'Knowledge Tree Driven Contextualized Instruction Tuning of Foundation Models for Epilepsy Drug Recommendation',
+        authors: 'Pham, K., <strong>D. Mehta*</strong>, Verspoor, K., Kwan, P., Ge, Z.',
+        venue: 'MICCAI 2025', vtype: '', year: '2025', tags: ["Epilepsy","Foundation Models"] },
+      { title: 'Multi-modal CT Perfusion-based Deep Learning for Predicting Stroke Lesion Outcomes',
+        authors: 'Yang, H., George, Y., D. Mehta, Lin, L., Yang, D., Ge, Z.',
+        venue: 'AJNR 2025', vtype: 'clin', year: '2025', tags: ["Stroke","Clinical Q1"] },
+      { title: 'Adaptive Transformer Modelling of Density Function for Nonparametric Survival Analysis',
+        authors: 'Zhang, X., D. Mehta, Hu, Y., Zhu, C., Darby, D., Yu, Z., Ge, Z., et al.',
+        venue: 'Machine Learning 2025', vtype: 'top', year: 'Jan 2025', tags: ["Multiple Sclerosis","Survival Analysis"] },
+      { title: 'Privacy-Preserving Early Detection of Epileptic Seizures in Videos',
+        authors: '<strong>D. Mehta*</strong>, Sivathamboo, S., Simpson, H., Kwan, P., O’Brien, T., Ge, Z.',
+        venue: 'MICCAI 2023', vtype: '', year: '2023', note: '⭐ Top 15% · Early Accept', tags: ["Epilepsy","Video Analysis"] },
+      { title: 'Privacy-Centric Seizure Detection Using Surface Normals, Pose and Segmentation Masks',
+        authors: 'Ponnambalam, K.G., <strong>D. Mehta</strong> (co-senior), et al.',
+        venue: 'AI 2025', vtype: '', year: '2026', tags: ["Epilepsy","Privacy-Preserving"] },
+      { title: 'Towards automated and marker-less Parkinson disease assessment: predicting UPDRS scores using sit-stand videos',
+        authors: '<strong>D. Mehta*</strong>, Asif, U., Hao, T., Bilal, E., Von Cavallar, S., Harrer, S., Rogers, J.',
+        venue: 'CVPR 2021', vtype: 'top', year: '2021', note: 'First & corresponding author', tags: ["Parkinson’s","Action Recognition"] }
+    ]
+  },
+
+  dermatology: {
+    title: 'AI for Dermatology',
+    desc: 'Trustworthy and clinically deployed AI for skin lesion analysis, addressing interpretability, minority-class bias, image quality robustness, and out-of-distribution detection — in collaboration with dermatology clinicians and Molemap Pty. Ltd.',
+    papers: [
+      { title: 'Large Multi-task Vision AI Model for Dermatology: Overcoming Critical Challenges in Skin Lesion Diagnosis',
+        authors: '<strong>D. Mehta*</strong>, Primiero, C., Betz-Stablein, B., Nguyen, T.D., Gal, Y., Mar, V., Soyer, H.P., Ge, Z.',
+        venue: 'JEADV 2025', vtype: 'clin', year: 'Feb 2025', note: 'First author · 10% accept rate', tags: ["Skin Lesion","Clinical Q1"] },
+      { title: 'Assessment of Image Quality on the Diagnostic Performance of Clinicians and Deep Learning Models',
+        authors: 'Oloruntoba, A.I., ..., D. Mehta, et al.',
+        venue: 'JEADV 2024', vtype: 'clin', year: 'Dec 2024', tags: ["Image Quality","Skin Lesion","Clinical Q1"] },
+      { title: 'Out-of-distribution detection for long-tailed and fine-grained skin lesion images',
+        authors: '<strong>D. Mehta*</strong>, Gal, Y., Bowling, A., Bonnington, P., Ge, Z.',
+        venue: 'MICCAI 2022', vtype: '', year: '2022', note: '⭐ Top 15% · Early Accept', tags: ["Skin Lesion","OOD Detection"] }
+    ]
+  },
+
+  histopathology: {
+    title: 'AI for Histopathology Analysis',
+    desc: 'AI systems for automated analysis of histopathological whole slide images to support oncology, tissue pathology, and surgical pathology workflows.',
+    papers: [
+      { title: 'TPMIL: Trainable Prototype Enhanced Multiple Instance Learning for Whole Slide Image Classification',
+        authors: 'Yang, L., D. Mehta, Liu, S., Mahapatra, D., Di Ieva, A., Ge, Z.',
+        venue: 'MIDL 2024', vtype: '', year: '2024', tags: ["Histopathology","WSI Classification","MIL"] }
+    ]
+  },
+
+  hospital: {
+    title: 'AI for Diverse Hospital Settings',
+    desc: 'AI solutions designed for real-world hospital deployment — covering ICU clinical handover, infection prevention and control, emergency triage, and augmented clinical workflows.',
+    papers: []   // papers to be added
+  },
+
+  patient: {
+    title: 'Patient & Clinician-Centred Design',
+    desc: 'Co-design of AI systems with social scientists, clinicians, and patient and community organizations to ensure AI is acceptable, adaptable, and genuinely beneficial for end-users in practice.',
+    papers: []   // papers to be added
+  }
+};
+
+// ─────────────────────────────────────────────
+//  MODAL FUNCTIONS
+// ─────────────────────────────────────────────
+function openModal(key) {
+  const d = paperData[key];
+  if (!d) return;
+
+  document.getElementById('m-title').textContent     = d.title;
+  document.getElementById('m-desc-text').textContent = d.desc;
+
+  const body = document.getElementById('m-body');
+
+  if (!d.papers || d.papers.length === 0) {
+    body.innerHTML = `
+      <div class="m-empty">
+        <div class="m-empty-icon">&#128196;</div>
+        <p>Papers for this theme are being compiled.<br>
+        Please <a href="mailto:deval.mehta@rmit.edu.au">contact me</a> directly for more information.</p>
+      </div>`;
+  } else {
+    const countLine = `<div class="m-count">${d.papers.length} publication${d.papers.length > 1 ? 's' : ''}</div>`;
+    const cards = d.papers.map(p => {
+      const tags = (p.tags || []).map(t =>
+        `<span class="tag tb" style="font-size:.63rem;padding:2px 8px">${t}</span>`).join('');
+      const note = p.note ? `<span class="pn">${p.note}</span>` : '';
+      return `
+        <div class="pubcard" style="margin-bottom:11px">
+          <div class="ph">
+            <div class="ptit">${p.title}</div>
+            <span class="vb ${p.vtype || ''}">${p.venue}</span>
+          </div>
+          <div class="pau">${p.authors}</div>
+          <div class="pm"><span class="py">${p.year}</span>${note}${tags}</div>
+        </div>`;
+    }).join('');
+    body.innerHTML = countLine + cards;
+  }
+
+  document.getElementById('m-ovl').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('m-ovl').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close on backdrop click or Escape key
+document.getElementById('m-ovl').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>
