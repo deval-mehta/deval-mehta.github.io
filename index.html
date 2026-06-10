@@ -90,7 +90,7 @@ a:hover{opacity:.75}
   padding:34px 24px 24px;
   border-bottom:1px solid var(--border2);
 }
-.avatar-wrap{width:90px;height:90px;margin:0 auto 16px;position:relative}
+.avatar-wrap{width:130px;height:130px;margin:0 auto 20px;position:relative}
 .avatar-ring{
   position:absolute;inset:-3px;border-radius:50%;
   background:conic-gradient(from 0deg,var(--ac),#38bdf8,var(--ac2),var(--purple),var(--ac));
@@ -98,10 +98,10 @@ a:hover{opacity:.75}
 }
 @keyframes ring-spin{to{transform:rotate(360deg)}}
 .avatar{
-  width:90px;height:90px;border-radius:50%;
+  width:130px;height:130px;border-radius:50%;overflow:hidden;
   background:linear-gradient(135deg,#ddeeff 0%,#c8dcf8 100%);
   display:flex;align-items:center;justify-content:center;
-  font-family:var(--serif);font-size:1.85rem;font-weight:500;color:var(--ac);
+  font-family:var(--serif);font-size:2.5rem;font-weight:500;color:var(--ac);
   position:relative;z-index:1;border:2.5px solid var(--bg1);
   letter-spacing:.04em;
 }
@@ -725,6 +725,11 @@ a:hover{opacity:.75}
   <div class="profile-area">
     <div class="avatar-wrap">
       <div class="avatar-ring"></div>
+      <!--
+        TO ADD YOUR PHOTO:
+        Replace <div class="avatar">DM</div> with:
+        <div class="avatar"><img src="photo.jpg" alt="Deval Mehta"></div>
+      -->
       <div class="avatar">DM</div>
     </div>
     <h1 class="pname">Deval Mehta<em>PhD</em></h1>
@@ -753,9 +758,11 @@ a:hover{opacity:.75}
     <a href="#about"        class="nl active"  data-s="about">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>About
     </a>
+    <!-- NEWS NAV — commented out; uncomment to restore
     <a href="#news"         class="nl" data-s="news">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0-2 2zM4 22V4"/></svg>News
     </a>
+    -->
     <a href="#research"     class="nl" data-s="research">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v8l3 3"/><path d="M3.05 11a9 9 0 1 0 .5-2"/><path d="m2 2 2 2"/></svg>Research
     </a>
@@ -783,32 +790,14 @@ a:hover{opacity:.75}
 <section id="about" class="sec">
   <div class="sh"><h2 class="st">About</h2><div class="sl"></div></div>
 
-  <!-- Float layout: photo left, text wraps right -->
-  <div class="about-float-wrap rv">
-    <div class="photo-float">
-      <!--
-        TO ADD YOUR PHOTO:
-        1. Upload photo (e.g. photo.jpg) to your GitHub repo root
-        2. Replace the .photo-fallback div with: <img src="photo.jpg" alt="Deval Mehta">
-      -->
-      <div class="photo-box">
-        <div class="photo-fallback">
-          <span>DM</span>
-          <small>Add your<br>photo here</small>
-        </div>
-      </div>
-      <p class="photo-caption">Deval Mehta, PhD<br>RMIT University</p>
-    </div>
-
-    <div class="bio">
+  <div class="bio rv" style="max-width:720px">
       <p>I am a <strong>Senior Lecturer in Digital Health</strong> at the School of Computing Technologies at <strong>RMIT University</strong>. I am an interdisciplinary research leader with academic, clinical, and industry experience in developing <strong>Translational AI systems for healthcare</strong>. My expertise spans <strong>multimodal learning, foundation AI models, LLMs</strong>, and clinician-in-the-loop design for diverse healthcare problems.</p>
       <p>Before joining RMIT in July 2026, I was a <strong>Research Fellow</strong> at the Department of Data Science &amp; AI at <strong>Monash University</strong> from 2021&ndash;2026, where I also co-founded the <strong>Augmented Intelligence and Multimodal Analytics (AIM) for Health Lab</strong> at the Faculty of IT in 2023.</p>
       <p>I have also had <strong>2.5 years of industry research experience</strong> post my PhD at <strong>IBM Research Labs</strong> in Australia and <strong>Panasonic R&amp;D Center</strong> in Singapore. I completed my <strong>PhD</strong> from the School of Electrical and Electronic Engineering at <strong>Nanyang Technological University</strong> in 2019.</p>
       <p>My full CV is available <a href="CV-Deval_Mehta.pdf" target="_blank"><strong>here</strong></a>.</p>
-    </div>
   </div>
 
-  <!-- ── Highlight CTA blocks ── -->
+    <!-- ── Highlight CTA blocks ── -->
   <div class="about-ctas rv">
     <a href="#research" class="about-cta">
       <div class="about-cta-icon">&#128300;</div>
@@ -829,6 +818,7 @@ a:hover{opacity:.75}
   </div>
 </section>
 
+<!-- NEWS SECTION — commented out; uncomment to restore
 <!-- ===== NEWS ===== -->
 <section id="news" class="sec">
   <div class="sh"><h2 class="st">News</h2><div class="sl"></div></div>
@@ -846,6 +836,7 @@ a:hover{opacity:.75}
     <div class="ni aw rv"><div class="nd">2023</div><div class="nc"><div class="nt">Selected as one of top 200 early career scientists globally &mdash; 10th Heidelberg Laureate Forum</div><div class="nx">Sole Australian recipient of AAS travel grant for HLF</div></div><span class="vb aw">Award</span></div>
   </div>
 </section>
+-->
 
 <!-- ===== RESEARCH ===== -->
 <section id="research" class="sec">
