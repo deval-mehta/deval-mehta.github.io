@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Patient and clinician-centred AI design research — Deval Mehta, RMIT University.">
+<title>Patient-Centred Design — Research | Deval Mehta</title>
+<script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})()</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<nav class="nav"><div class="nav-inner"><a href="index.html" class="nav-brand">Deval Mehta</a><ul class="nav-links">
+      <li><a href="index.html">About</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="opportunities.html">Opportunities</a></li>
+      <li><a href="grants.html">Grants</a></li>
+      <li><a href="contact.html">Contact</a></li>
+</ul><div class="nav-right"><button class="theme-btn" id="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span>Dark</span></button><button class="nav-toggle" id="nav-btn" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div></div></nav>
+<div class="nav-drawer" id="nav-drawer">
+  <a href="index.html">About</a>
+  <a href="research.html" class="active">Research</a>
+  <a href="publications.html">Publications</a>
+  <a href="opportunities.html">Opportunities</a>
+  <a href="grants.html">Grants</a>
+  <a href="contact.html">Contact</a>
+</div>
+<main><div class="page">
+<div class="page-hdr">
+  <p class="breadcrumb"><a href="research.html">Research</a> &rsaquo; Patient &amp; Clinician-Centred Design</p>
+  <h1>Patient &amp; Clinician-Centred Design</h1>
+  <p>Co-designing AI with patients, clinicians, and social scientists to ensure real-world acceptability and adoption.</p>
+</div>
+<section class="sec">
+<p class="theme-intro">I have initiated several collaborations with <strong>social scientists and patient/community organisations</strong> to co-design AI systems that are genuinely acceptable and adaptable in practice. Understanding end-users&rsquo; perspectives on these technologies is fundamental.</p>
+
+<div class="area">
+  <div class="area-title">Co-design, Adoption &amp; Ethics of Healthcare AI</div>
+  <div class="area-desc">Working with the Epilepsy Foundation, HCI researchers (Monash), and community organisations to build AI that reflects real patient and clinician needs. Papers in preparation &mdash; please <a href="contact.html">contact me</a> directly for details.</div>
+</div>
+
+<div class="collab-cta">
+  I am particularly interested in connecting with social scientists, HCI researchers, ethicists, and patient advocacy organisations. <a href="contact.html">Get in touch &rarr;</a> &nbsp;&middot;&nbsp; <a href="research.html">&larr; Back to Research</a>
+</div>
+</section>
+</div></main>
+<footer class="footer"><div class="page"><p>&copy; 2026 Deval Mehta &middot; Senior Lecturer, RMIT University &middot; <a href="mailto:deval.mehta1092@gmail.com">deval.mehta1092@gmail.com</a></p></div></footer>
+<script>document.getElementById('nav-btn').addEventListener('click',()=>document.getElementById('nav-drawer').classList.toggle('open'));
+var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><span>Light</span>';
+var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span>Dark</span>';
+function updateBtn(t){var b=document.getElementById('theme-btn');if(b)b.innerHTML=t==='dark'?SUN:MOON;}
+function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('theme',n);updateBtn(n);}
+updateBtn(document.documentElement.getAttribute('data-theme')||'light');</script></body></html>

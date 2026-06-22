@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Research interests and collaborative opportunities — Deval Mehta, AI for Healthcare, RMIT University.">
+<meta name="description" content="Research interests and collaborative opportunities — Deval Mehta, AI for Healthcare, RMIT.">
 <title>Research | Deval Mehta</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})()</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head><body>
@@ -16,7 +16,7 @@
       <li><a href="opportunities.html">Opportunities</a></li>
       <li><a href="grants.html">Grants</a></li>
       <li><a href="contact.html">Contact</a></li>
-</ul><button class="nav-toggle" id="nav-btn" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div></nav>
+</ul><div class="nav-right"><button class="theme-btn" id="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span>Dark</span></button><button class="nav-toggle" id="nav-btn" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div></div></nav>
 <div class="nav-drawer" id="nav-drawer">
   <a href="index.html">About</a>
   <a href="research.html" class="active">Research</a>
@@ -30,127 +30,113 @@
   <h1>Research Interests &amp; Collaborative Opportunities</h1>
   <p>Translational AI for healthcare, developed across technical, clinical, and patient-centred dimensions.</p>
 </div>
-
+<section class="sec">
+<div class="rq">"The design of futuristic healthcare AI technologies requires a highly multi-disciplinary framework and end-users should be at the core of it."</div>
 <div class="r-intro">
-  <p>I focus on developing AI systems that are <strong>actually translatable in clinical practice</strong>. Thus, I collaborate across disciplines &mdash; clinicians, health economists, social scientists, HCI researchers, ethical scientists, and most importantly <strong>patients and end-users themselves</strong>.</p>
-  <p>My research spans across three interconnected themes:</p>
+  <p>I focus on developing AI systems that are <strong>actually translatable in clinical practice</strong>. This requires deep collaboration across disciplines &mdash; clinicians, health economists, social scientists, HCI researchers, ethical scientists, and most importantly <strong>patients and end-users themselves</strong>.</p>
+  <p>My research spans three interconnected themes. Click any card to explore in detail.</p>
 </div>
 
-<!-- ── Theme 01 ── -->
-<div class="theme">
-  <div class="theme-hdr"><span class="theme-num">01</span><h2 class="theme-name">Technical Advancements</h2></div>
-  <p class="theme-intro">My research focuses on <strong>multimodal learning</strong> with explainability and interpretability as a central concern. More recently, I focus on mitigating hallucinations in LLMs and grounding their knowledge in <strong>clinical evidence and guidelines</strong>.</p>
+<!--
+  COLLAGE IMAGES: place images in the img/research/ folder of your repo.
+  Each theme expects 4 images (e.g. img/research/technical-1.jpg through technical-4.jpg).
+  Recommended: 400x320px, from paper figures or clinical images.
+  Replace the placeholder comments in each .collage-cell with an <img> tag.
+-->
 
-  <div class="area">
-    <div class="area-title">Human Activity Monitoring &amp; Action Recognition</div>
-    <div class="area-desc">Automated motion analysis and action recognition for marker-less clinical assessment of neurological and movement disorders.</div>
-    <ul class="area-papers">
-      <li>"Towards automated and marker-less Parkinson disease assessment: predicting UPDRS scores" &mdash; <strong>D. Mehta*</strong> et al. &mdash; <em>CVPR 2021</em></li>
-      <li>"DeepActsNet: A deep ensemble framework for action recognition" &mdash; Asif U., D. Mehta et al. &mdash; <em>Pattern Recognition 2023</em></li>
-      <li>"Privacy-Preserving Early Detection of Epileptic Seizures in Videos" &mdash; <strong>D. Mehta*</strong> et al. &mdash; <em>MICCAI 2023 &#11088; Top 15%</em></li>
-    </ul>
-  </div>
-
-  <div class="area">
-    <div class="area-title">Vision-Language Models</div>
-    <div class="area-desc">Combining visual and language understanding for interpretable medical image analysis, concept-guided diagnosis, and clinical report generation.</div>
-    <ul class="area-papers">
-      <li>"WISE: Weak-Supervision-Guided Step-by-Step Explanations for Multimodal LLMs" &mdash; Yiwen J., <strong>D. Mehta*</strong> et al. &mdash; <em>EMNLP 2025</em></li>
-      <li>"Enhancing Interpretable Image Classification Through LLM Agents and Conditional CBMs" &mdash; Yiwen J., <strong>D. Mehta*</strong> et al. &mdash; <em>ACL 2025</em></li>
-      <li>"Interpretable Few-Shot Retinal Disease Diagnosis with Concept-Guided Prompting of VLMs" &mdash; <strong>D. Mehta*</strong> et al. &mdash; <em>IPMI 2025</em></li>
-    </ul>
-  </div>
-
-  <div class="area">
-    <div class="area-title">Foundation Models &amp; Agentic Systems</div>
-    <div class="area-desc">Large-scale medical foundation models and AI agents grounded in clinical evidence and guidelines for diverse healthcare tasks.</div>
-    <ul class="area-papers">
-      <li>"Knowledge Tree Driven Contextualized Instruction Tuning for Epilepsy Drug Recommendation" &mdash; Pham K., <strong>D. Mehta*</strong> et al. &mdash; <em>MICCAI 2025</em></li>
-      <li>"M3CoL: Harnessing Shared Relations via Multimodal Mixup Contrastive Learning" &mdash; Kumar R., D. Mehta et al. &mdash; <em>TMLR 2025</em></li>
-      <li>"Adaptive Transformer Modelling of Density Function for Nonparametric Survival Analysis" &mdash; Zhang X., D. Mehta et al. &mdash; <em>Machine Learning (Springer) 2025</em></li>
-    </ul>
-  </div>
-
-  <div class="area">
-    <div class="area-title">Interpretable Concept-Based Learning</div>
-    <div class="area-desc">AI models where predictions are grounded in human-understandable visual and clinical concepts, enabling transparency and accountability for clinical adoption.</div>
-    <ul class="area-papers">
-      <li>"Enhancing Interpretable Image Classification Through LLM Agents and Conditional CBMs" &mdash; Yiwen J., <strong>D. Mehta*</strong> et al. &mdash; <em>ACL 2025</em></li>
-      <li>"Interpretable Few-Shot Retinal Disease Diagnosis with Concept-Guided Prompting" &mdash; <strong>D. Mehta*</strong> et al. &mdash; <em>IPMI 2025</em></li>
-      <li>"Out-of-distribution detection for long-tailed and fine-grained skin lesion images" &mdash; <strong>D. Mehta*</strong> et al. &mdash; <em>MICCAI 2022 &#11088; Top 15%</em></li>
-    </ul>
+<div class="r-card">
+  <div class="collage">
+      <div class="collage-cell">
+        <!-- Add image: <img src="img/research/technical-1.jpg" alt=""> -->
+        <div class="collage-cell-ph">Foundation Models</div>
+      </div>
+      <div class="collage-cell">
+        <!-- Add image: <img src="img/research/technical-2.jpg" alt=""> -->
+        <div class="collage-cell-ph">VLMs &amp; LLMs</div>
+      </div>
+      <div class="collage-cell">
+        <!-- Add image: <img src="img/research/technical-3.jpg" alt=""> -->
+        <div class="collage-cell-ph">Concept-based AI</div>
+      </div>
+      <div class="collage-cell">
+        <!-- Add image: <img src="img/research/technical-4.jpg" alt=""> -->
+        <div class="collage-cell-ph">Activity Recognition</div>
+      </div>
+    </div>
+  <div class="r-card-body">
+    <div class="r-card-num">01</div>
+    <div class="r-card-name">Technical Advancements</div>
+    <div class="r-card-desc">Multimodal learning with explainability and interpretability as a central concern. More recently focused on mitigating hallucinations in LLMs and grounding their knowledge in clinical evidence and guidelines.</div>
+    <div class="r-card-areas">Human Activity Recognition &middot; Vision-Language Models &middot; Foundation Models &amp; Agentic Systems &middot; Interpretable Concept-Based Learning</div>
+    <a href="research-technical.html" class="r-card-link">Explore theme &rarr;</a>
   </div>
 </div>
 
-<!-- ── Theme 02 ── -->
-<div class="theme">
-  <div class="theme-hdr"><span class="theme-num">02</span><h2 class="theme-name">Healthcare Domains</h2></div>
-  <p class="theme-intro">The translational nature of my AI research is grounded through <strong>close partnerships with clinical domain experts</strong>. I have built four active pillars and am actively expanding.</p>
-
-  <div class="area">
-    <div class="area-title">AI for Neurology</div>
-    <div class="area-desc">Epilepsy management, stroke prediction, Parkinson&rsquo;s assessment, and multiple sclerosis analysis. Developed with clinical partners at Monash, Alfred Health, and internationally.</div>
-    <ul class="area-papers">
-      <li>"Knowledge Tree Driven Instruction Tuning for Epilepsy Drug Recommendation" &mdash; <em>MICCAI 2025</em></li>
-      <li>"Multi-modal CT Perfusion-based Deep Learning for Predicting Stroke Lesion Outcomes" &mdash; <em>AJNR 2025</em></li>
-      <li>"Privacy-Preserving Early Detection of Epileptic Seizures in Videos" &mdash; <em>MICCAI 2023 &#11088; Top 15%</em></li>
-      <li>"Towards automated and marker-less Parkinson disease assessment" &mdash; <em>CVPR 2021</em></li>
-    </ul>
-  </div>
-
-  <div class="area">
-    <div class="area-title">AI for Dermatology</div>
-    <div class="area-desc">Trustworthy and clinically deployed AI for skin lesion analysis. Work implemented in GP clinics across Australia and New Zealand via Molemap Pty. Ltd.</div>
-    <ul class="area-papers">
-      <li>"Large Multi-task Vision AI Model for Dermatology" &mdash; <strong>D. Mehta*</strong> et al. &mdash; <em>JEADV 2025</em> (10% accept rate)</li>
-      <li>"Assessment of Image Quality on the Diagnostic Performance of DL Models" &mdash; <em>JEADV 2024</em></li>
-      <li>"Out-of-distribution detection for long-tailed and fine-grained skin lesion images" &mdash; <em>MICCAI 2022 &#11088; Top 15%</em></li>
-    </ul>
-  </div>
-
-  <div class="area">
-    <div class="area-title">AI for Histopathology Analysis</div>
-    <div class="area-desc">AI systems for automated analysis of whole slide images to support oncology and tissue pathology workflows.</div>
-    <ul class="area-papers">
-      <li>"TPMIL: Trainable Prototype Enhanced Multiple Instance Learning for WSI Classification" &mdash; Yang L., D. Mehta et al. &mdash; <em>MIDL 2024</em></li>
-    </ul>
-  </div>
-
-  <div class="area">
-    <div class="area-title">AI for Diverse Hospital Settings</div>
-    <div class="area-desc">AI solutions for ICU clinical handover, infection prevention and control, emergency triage, and augmented clinical workflows.</div>
-    <ul class="area-papers">
-      <li><em>Papers in progress &mdash; please <a href="contact.html">contact me</a> for current work.</em></li>
-    </ul>
-  </div>
-
-  <div class="area">
-    <div class="area-title">AI for Cardiology <span class="seeking">Expanding &mdash; Seeking Partnerships</span></div>
-    <div class="area-desc">I am actively looking for clinical collaborators in cardiology to develop and translate AI tools for cardiac disease management.</div>
-  </div>
-
-  <div class="area">
-    <div class="area-title">AI for Human Kinetics &amp; Wearables <span class="seeking">Expanding &mdash; Seeking Partnerships</span></div>
-    <div class="area-desc">Interested in partnerships exploring wearable sensor data and human movement analytics for clinical applications.</div>
+<div class="r-card">
+  <div class="collage">
+      <div class="collage-cell">
+        <!-- Add image: <img src="img/research/healthcare-1.jpg" alt=""> -->
+        <div class="collage-cell-ph">AI for Neurology</div>
+      </div>
+      <div class="collage-cell">
+        <!-- Add image: <img src="img/research/healthcare-2.jpg" alt=""> -->
+        <div class="collage-cell-ph">AI for Dermatology</div>
+      </div>
+      <div class="collage-cell">
+        <!-- Add image: <img src="img/research/healthcare-3.jpg" alt=""> -->
+        <div class="collage-cell-ph">AI for Histopathology</div>
+      </div>
+      <div class="collage-cell">
+        <!-- Add image: <img src="img/research/healthcare-4.jpg" alt=""> -->
+        <div class="collage-cell-ph">Hospital Settings</div>
+      </div>
+    </div>
+  <div class="r-card-body">
+    <div class="r-card-num">02</div>
+    <div class="r-card-name">Healthcare Domains</div>
+    <div class="r-card-desc">Translational AI developed closely with clinical domain experts. Four active research pillars — neurology, dermatology, histopathology, and hospital settings — with expanding interests in cardiology and human kinetics.</div>
+    <div class="r-card-areas">Neurology (Epilepsy, Stroke, Parkinson&rsquo;s, MS) &middot; Dermatology &middot; Histopathology &middot; Hospital Settings</div>
+    <a href="research-healthcare.html" class="r-card-link">Explore theme &rarr;</a>
   </div>
 </div>
 
-<!-- ── Theme 03 ── -->
-<div class="theme">
-  <div class="theme-hdr"><span class="theme-num">03</span><h2 class="theme-name">Patient &amp; Clinician-Centred Design</h2></div>
-  <p class="theme-intro">I have initiated several collaborations with <strong>social scientists and patient/community organisations</strong> to co-design AI systems that are genuinely acceptable and adaptable in practice. Understanding end-users&rsquo; perspectives on these technologies is fundamental.</p>
-  <div class="area">
-    <div class="area-title">Co-design, Adoption &amp; Ethics of Healthcare AI</div>
-    <div class="area-desc">Working with the Epilepsy Foundation, HCI researchers (Monash), and community organisations to build AI that reflects real patient and clinician needs. Papers in preparation &mdash; please <a href="contact.html">contact me</a> directly for details.</div>
+<div class="r-card">
+  <div class="collage">
+      <div class="collage-cell">
+        <!-- Add image: <img src="img/research/patient-1.jpg" alt=""> -->
+        <div class="collage-cell-ph">Co-design Studies</div>
+      </div>
+      <div class="collage-cell">
+        <!-- Add image: <img src="img/research/patient-2.jpg" alt=""> -->
+        <div class="collage-cell-ph">Patient Perspectives</div>
+      </div>
+      <div class="collage-cell">
+        <!-- Add image: <img src="img/research/patient-3.jpg" alt=""> -->
+        <div class="collage-cell-ph">Clinician Feedback</div>
+      </div>
+      <div class="collage-cell">
+        <!-- Add image: <img src="img/research/patient-4.jpg" alt=""> -->
+        <div class="collage-cell-ph">Ethics &amp; Adoption</div>
+      </div>
+    </div>
+  <div class="r-card-body">
+    <div class="r-card-num">03</div>
+    <div class="r-card-name">Patient &amp; Clinician-Centred Design</div>
+    <div class="r-card-desc">Collaborations with social scientists and patient/community organisations to co-design AI systems that are genuinely acceptable and adaptable in practice — not limited to just research.</div>
+    <div class="r-card-areas">Co-design &middot; Adoption &middot; Ethics &middot; HCI &middot; End-user Perspectives</div>
+    <a href="research-patient.html" class="r-card-link">Explore theme &rarr;</a>
   </div>
 </div>
 
-<div class="collab-cta">
-  <strong>I am always looking for collaborations from diverse disciplines</strong> who are genuinely committed to building translatable AI systems for healthcare. No matter your background &mdash; please reach out with a problem or interest and I am happy to explore it together. <a href="contact.html">Get in touch &rarr;</a>
+<div class="collab-cta" style="margin-top:36px">
+  <strong>I am always looking for collaborations from diverse disciplines</strong> who are genuinely committed to building translatable AI systems for healthcare. No matter your background &mdash; please <a href="contact.html">reach out</a>.
 </div>
-
 </section>
 </div></main>
-<footer class="footer"><div class="page"><p>&copy; 2026 Deval Mehta &middot; Senior Lecturer, RMIT University &middot; <a href="mailto:deval.mehta@rmit.edu.au">deval.mehta@rmit.edu.au</a></p></div></footer>
-<script>document.getElementById("nav-btn").addEventListener("click",()=>{document.getElementById("nav-drawer").classList.toggle("open");});</script>
-</body></html>
+<footer class="footer"><div class="page"><p>&copy; 2026 Deval Mehta &middot; Senior Lecturer, RMIT University &middot; <a href="mailto:deval.mehta1092@gmail.com">deval.mehta1092@gmail.com</a></p></div></footer>
+<script>document.getElementById('nav-btn').addEventListener('click',()=>document.getElementById('nav-drawer').classList.toggle('open'));
+var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><span>Light</span>';
+var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span>Dark</span>';
+function updateBtn(t){var b=document.getElementById('theme-btn');if(b)b.innerHTML=t==='dark'?SUN:MOON;}
+function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('theme',n);updateBtn(n);}
+updateBtn(document.documentElement.getAttribute('data-theme')||'light');</script></body></html>
