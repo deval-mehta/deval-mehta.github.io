@@ -157,7 +157,7 @@ img { display: block; max-width: 100%; }
 }
 .sec-subtitle { font-size: .88rem; color: var(--text-2); margin-bottom: 24px; }
 
-.page-hdr { padding: 44px 0 36px; border-bottom: 1px solid var(--border); }
+.page-hdr { padding: 44px 0 28px; }
 .page-hdr h1 { font-family: var(--f-serif); font-size: 1.9rem; font-weight: 600; color: var(--text); }
 .page-hdr p { font-size: .9rem; color: var(--text-2); margin-top: 6px; }
 
@@ -331,9 +331,16 @@ img { display: block; max-width: 100%; }
 .theme-intro { font-size: .9rem; color: var(--text-2); line-height: 1.78; margin-bottom: 22px; }
 .theme-intro strong { color: var(--text); }
 
-.area { padding: 20px 0; border-bottom: 1px solid var(--border); }
-.area:last-child { border-bottom: none; }
-.area-title { font-size: .92rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.area {
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--bg-soft);
+  margin-bottom: 12px;
+  transition: background .2s, border-color .2s;
+}
+.area:last-child { margin-bottom: 0; }
+.area-title { font-family: var(--f-serif); font-size: 1.12rem; font-weight: 600; color: var(--text); margin-bottom: 7px; }
 .area-desc { font-size: .84rem; color: var(--text-2); line-height: 1.72; margin-bottom: 12px; }
 .area-papers { list-style: none; }
 .area-papers li {
@@ -487,12 +494,6 @@ img { display: block; max-width: 100%; }
   transition: background .2s, border-color .2s;
 }
 .paper-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.paper-thumb video {
   width: 100%;
   height: 100%;
   object-fit: cover;
