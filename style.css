@@ -461,3 +461,45 @@ img { display: block; max-width: 100%; }
   .sec { padding: 40px 0; }
   .theme-btn span { display: none; } /* icon only on mobile */
 }
+
+/* ============================================================
+   PAPER ENTRIES WITH OPTIONAL IMAGE THUMBNAIL
+   Used in research sub-pages (research-technical.html etc.)
+   Usage: add class="paper-item" to any <li> and wrap content
+   in .paper-thumb + .paper-text  (see README pattern below)
+============================================================ */
+.area-papers li.paper-item {
+  display: flex;
+  gap: 0;
+  padding: 8px 0;
+  border-left: none;
+  margin-bottom: 10px;
+}
+.paper-thumb {
+  width: 120px;
+  height: 76px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--thumb-bg);
+  margin-right: 0;
+  transition: background .2s, border-color .2s;
+}
+.paper-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.paper-text {
+  flex: 1;
+  padding-left: 12px;
+  border-left: 2px solid var(--border);
+  line-height: 1.5;
+}
+@media (max-width: 680px) {
+  .area-papers li.paper-item { flex-direction: column; gap: 8px; }
+  .paper-thumb { width: 100%; height: 80px; }
+  .paper-text { padding-left: 0; border-left: none; border-top: 2px solid var(--border); padding-top: 8px; }
+}
