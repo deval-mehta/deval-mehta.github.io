@@ -166,7 +166,39 @@ img { display: block; max-width: 100%; }
 ============================================================ */
 .hero { padding: 60px 0 52px; border-bottom: 1px solid var(--border); }
 .hero-inner { display: flex; gap: 48px; align-items: flex-start; }
-.hero-photo { flex-shrink: 0; width: 188px; }
+.hero-photo { width: 188px; }
+/* Left column: photo stacked above CTA links */
+.hero-left {
+  flex-shrink: 0;
+  width: 188px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+/* Small CTA cards that sit below the photo */
+.hero-cta-sm {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--bg-soft);
+  transition: all .15s;
+  color: var(--text);
+}
+.hero-cta-sm:hover {
+  border-color: var(--accent);
+  background: var(--accent-lt);
+  text-decoration: none;
+}
+.hero-cta-sm-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+.hero-cta-sm-title {
+  font-size: .76rem; font-weight: 600; color: var(--text);
+  line-height: 1.35; margin-bottom: 3px;
+}
+.hero-cta-sm-arr { font-size: .7rem; color: var(--accent); font-weight: 500; }
+
 .hero-img {
   width: 188px; height: 228px; border-radius: var(--r);
   background: linear-gradient(145deg,#e8eeff,#ccd8f6);
@@ -451,7 +483,8 @@ img { display: block; max-width: 100%; }
   .nav-toggle { display: flex; }
   .theme-btn span { display: none; }
   .hero-inner { flex-direction: column; gap: 24px; }
-  .hero-photo { width: 140px; }
+  .hero-left { width: 100%; }
+.hero-photo { width: 140px; }
   .hero-img { width: 140px; height: 170px; }
   .hero-name { font-size: 1.9rem; }
   .ov-grid { grid-template-columns: 1fr; gap: 18px; }

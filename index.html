@@ -46,20 +46,34 @@
 </div>
 <main>
 <div class="page">
-
   <section class="hero">
     <div class="hero-inner">
 
-      <!-- Photo — replace <span>DM</span> with <img src="photo.jpg" alt="Deval Mehta"> when ready -->
-      <div class="hero-photo">
-        <div class="hero-img"><img src="profile.jpg" alt="Deval Mehta"></div>
-      </div>
+      <!-- Left column: photo + CTA links below -->
+      <div class="hero-left">
+        <div class="hero-photo">
+          <div class="hero-img"><img src="profile.jpg" alt="Deval Mehta"></div>
+        </div>
+        <a href="research.html" class="hero-cta-sm">
+          <span class="hero-cta-sm-icon">&#128300;</span>
+          <div>
+            <div class="hero-cta-sm-title">Research &amp; Collaborative Opportunities</div>
+            <div class="hero-cta-sm-arr">Explore &rarr;</div>
+          </div>
+        </a>
+        <a href="opportunities.html" class="hero-cta-sm">
+          <span class="hero-cta-sm-icon">&#127891;</span>
+          <div>
+            <div class="hero-cta-sm-title">Student &amp; Postdoc Opportunities</div>
+            <div class="hero-cta-sm-arr">Explore &rarr;</div>
+          </div>
+        </a>
+      </div><!-- /hero-left -->
 
       <div class="hero-body">
         <h1 class="hero-name">Deval Mehta</h1>
         <p class="hero-role">Senior Lecturer in Digital Health</p>
         <p class="hero-affil">School of Computing Technologies, RMIT University &middot; Melbourne, Australia</p>
-
         <div class="hero-bio">
           <p>I am a <strong>Senior Lecturer in Digital Health</strong> at the School of Computing Technologies at <strong>RMIT University</strong>, and an <strong>Adjunct Senior Research Fellow</strong> at the Department of DSAI, Faculty of IT at <strong>Monash University</strong>.</p>
           <p>I am an interdisciplinary research leader with academic, clinical, and industry experience in developing <strong>Translational AI systems for healthcare</strong>. My expertise spans multimodal learning, foundation AI models, LLMs, clinician-in-the-loop design, and patient-centered studies for diverse healthcare problems.</p>
@@ -67,7 +81,6 @@
           <p>I have also had industry research experience at <strong>IBM Research Labs</strong> in Australia and <strong>Panasonic R&amp;D Center</strong> in Singapore. I completed my PhD from the School of Electrical and Electronic Engineering at <strong>Nanyang Technological University</strong> in 2019.</p>
           <p>My full CV is available <a href="https://github.com/deval-mehta/deval-mehta.github.io/blob/main/CV-Deval%20Mehta.pdf" target="_blank"><strong>here</strong></a>.</p>
         </div>
-
         <div class="hero-links">
           <a href="mailto:deval.mehta1092@gmail.com" class="hlink">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Email
@@ -83,30 +96,9 @@
           </a>
         </div>
       </div>
+
     </div>
   </section>
-
-  <section class="sec">
-    <div class="cta-pair">
-      <a href="research.html" class="cta">
-        <div class="cta-icon">&#128300;</div>
-        <div>
-          <div class="cta-title">Research &amp; Collaborative Opportunities</div>
-          <div class="cta-desc">Explore research themes, healthcare domains, and how to collaborate</div>
-        </div>
-        <div class="cta-arr">&rarr;</div>
-      </a>
-      <a href="opportunities.html" class="cta">
-        <div class="cta-icon">&#127891;</div>
-        <div>
-          <div class="cta-title">Student &amp; Postdoc Opportunities</div>
-          <div class="cta-desc">Motivated researchers looking to make an impact in Applied AI for Healthcare</div>
-        </div>
-        <div class="cta-arr">&rarr;</div>
-      </a>
-    </div>
-  </section>
-
 </div>
 </main>
 <footer class="footer">
@@ -119,7 +111,6 @@
 document.getElementById('nav-btn').addEventListener('click',()=>{
   document.getElementById('nav-drawer').classList.toggle('open');
 });
-
 var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><span>Light</span>';
 var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span>Dark</span>';
 function updateBtn(t){var b=document.getElementById('theme-btn');if(b)b.innerHTML=t==='dark'?SUN:MOON;}
