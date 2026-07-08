@@ -10,125 +10,77 @@
 <link rel="stylesheet" href="style.css">
 </head><body>
 <nav class="nav"><div class="nav-inner"><a href="index.html" class="nav-brand">Deval Mehta</a><ul class="nav-links">
-      <li><a href="index.html">About</a></li>
-      <li><a href="research.html" class="active">Research</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="opportunities.html">Opportunities</a></li>
-      <li><a href="grants.html">Grants</a></li>
-      <li><a href="contact.html">Contact</a></li>
+<li><a href="index.html">About</a></li>
+<li><a href="research.html" class="active">Research</a></li>
+<li><a href="publications.html">Publications</a></li>
+<li><a href="opportunities.html">Opportunities</a></li>
+<li><a href="grants.html">Grants</a></li>
+<li><a href="contact.html">Contact</a></li>
 </ul><div class="nav-right"><button class="theme-btn" id="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span>Dark</span></button><button class="nav-toggle" id="nav-btn" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div></div></nav>
 <div class="nav-drawer" id="nav-drawer">
-  <a href="index.html">About</a>
-  <a href="research.html" class="active">Research</a>
-  <a href="publications.html">Publications</a>
-  <a href="opportunities.html">Opportunities</a>
-  <a href="grants.html">Grants</a>
-  <a href="contact.html">Contact</a>
+<a href="index.html">About</a>
+<a href="research.html" class="active">Research</a>
+<a href="publications.html">Publications</a>
+<a href="opportunities.html">Opportunities</a>
+<a href="grants.html">Grants</a>
+<a href="contact.html">Contact</a>
 </div>
 <main><div class="page">
 <div class="page-hdr">
-  <h1>Research Interests &amp; Collaborative Opportunities</h1>
-  <p>Translational AI for healthcare, developed across technical, clinical, and patient-centred dimensions.</p>
+<h1>Research Interests &amp; Collaborative Opportunities</h1>
+<p>Translational AI for healthcare, developed across technical, clinical, and patient-centred dimensions.</p>
 </div>
-<section class="sec">
+<section class="sec" style="padding-top:20px">
 <div class="r-intro">
-  <p>I focus on developing AI systems that are <strong>translatable in clinical practice</strong>. Thus, I collaborate across disciplines &mdash; clinicians, health economists, social scientists, HCI researchers, ethical scientists, and patients and end-users.</p>
-  <p>My research spans three interconnected themes described in detail below.</p>
+<p>I focus on developing AI systems that are <strong>translatable in clinical practice</strong>. Thus, I collaborate across disciplines &mdash; clinicians, health economists, social scientists, HCI researchers, ethical scientists, and patients and end-users.</p>
+<p>My research spans three interconnected themes described in detail below.</p>
 </div>
-
 <!--
-  COLLAGE IMAGES: place images in the img/research/ folder of your repo.
-  Each theme expects 4 images (e.g. img/research/technical-1.jpg through technical-4.jpg).
-  Recommended: 400x320px, from paper figures or clinical images.
-  Replace the placeholder comments in each .collage-cell with an <img> tag.
+  IMAGE: place one image per theme in img/research/ (e.g. img/research/technical.jpg).
+  Recommended: 400x300px from a representative paper figure or clinical image.
+  To add: replace the .r-card-img-ph div with <img src="img/research/THEME.jpg" alt="">
 -->
-
 <div class="r-card">
-  <div class="collage">
-      <div class="collage-cell">
-        <!-- Add image: <img src="img/research/technical-1.jpg" alt=""> -->
-        <div class="collage-cell-ph">Foundation Models</div>
-      </div>
-      <div class="collage-cell">
-        <!-- Add image: <img src="img/research/technical-2.jpg" alt=""> -->
-        <div class="collage-cell-ph">VLMs &amp; LLMs</div>
-      </div>
-      <div class="collage-cell">
-        <!-- Add image: <img src="img/research/technical-3.jpg" alt=""> -->
-        <div class="collage-cell-ph">Concept-based AI</div>
-      </div>
-      <div class="collage-cell">
-        <!-- Add image: <img src="img/research/technical-4.jpg" alt=""> -->
-        <div class="collage-cell-ph">Activity Recognition</div>
-      </div>
-    </div>
+  <div class="r-card-img">
+    <!-- Add image: <img src="img/research/technical.jpg" alt="">
+         Recommended: 400x300px -->
+    <div class="r-card-img-ph">Add image<span>img/research/technical.jpg</span></div>
+  </div>
   <div class="r-card-body">
-    <div class="r-card-num">01</div>
     <div class="r-card-name">Technical Advancements</div>
     <div class="r-card-desc">Multimodal learning with explainability and interpretability as a central concern. More recently focused on mitigating hallucinations in LLMs and grounding their knowledge in clinical evidence and guidelines.</div>
     <div class="r-card-areas">Human Activity Recognition &middot; Vision-Language Models &middot; Foundation Models &amp; Agentic Systems &middot; Interpretable Concept-Based Learning</div>
     <a href="research-technical.html" class="r-card-link">Explore theme &rarr;</a>
   </div>
 </div>
-
 <div class="r-card">
-  <div class="collage">
-      <div class="collage-cell">
-        <!-- Add image: <img src="img/research/healthcare-1.jpg" alt=""> -->
-        <div class="collage-cell-ph">AI for Neurology</div>
-      </div>
-      <div class="collage-cell">
-        <!-- Add image: <img src="img/research/healthcare-2.jpg" alt=""> -->
-        <div class="collage-cell-ph">AI for Dermatology</div>
-      </div>
-      <div class="collage-cell">
-        <!-- Add image: <img src="img/research/healthcare-3.jpg" alt=""> -->
-        <div class="collage-cell-ph">AI for Histopathology</div>
-      </div>
-      <div class="collage-cell">
-        <!-- Add image: <img src="img/research/healthcare-4.jpg" alt=""> -->
-        <div class="collage-cell-ph">Hospital Settings</div>
-      </div>
-    </div>
+  <div class="r-card-img">
+    <!-- Add image: <img src="img/research/healthcare.jpg" alt="">
+         Recommended: 400x300px -->
+    <div class="r-card-img-ph">Add image<span>img/research/healthcare.jpg</span></div>
+  </div>
   <div class="r-card-body">
-    <div class="r-card-num">02</div>
     <div class="r-card-name">Healthcare Domains</div>
-    <div class="r-card-desc">Translational AI developed closely with clinical domain experts. Four active research pillars — neurology, dermatology, histopathology, and hospital settings — with expanding interests in cardiology and human kinetics.</div>
+    <div class="r-card-desc">Translational AI developed closely with clinical domain experts. Four active research pillars &mdash; neurology, dermatology, histopathology, and hospital settings &mdash; with expanding interests in cardiology and human kinetics.</div>
     <div class="r-card-areas">Neurology (Epilepsy, Stroke, Parkinson&rsquo;s, MS) &middot; Dermatology &middot; Histopathology &middot; Hospital Settings</div>
     <a href="research-healthcare.html" class="r-card-link">Explore theme &rarr;</a>
   </div>
 </div>
-
 <div class="r-card">
-  <div class="collage">
-      <div class="collage-cell">
-        <!-- Add image: <img src="img/research/patient-1.jpg" alt=""> -->
-        <div class="collage-cell-ph">Co-design Studies</div>
-      </div>
-      <div class="collage-cell">
-        <!-- Add image: <img src="img/research/patient-2.jpg" alt=""> -->
-        <div class="collage-cell-ph">Patient Perspectives</div>
-      </div>
-      <div class="collage-cell">
-        <!-- Add image: <img src="img/research/patient-3.jpg" alt=""> -->
-        <div class="collage-cell-ph">Clinician Feedback</div>
-      </div>
-      <div class="collage-cell">
-        <!-- Add image: <img src="img/research/patient-4.jpg" alt=""> -->
-        <div class="collage-cell-ph">Ethics &amp; Adoption</div>
-      </div>
-    </div>
+  <div class="r-card-img">
+    <!-- Add image: <img src="img/research/patient.jpg" alt="">
+         Recommended: 400x300px -->
+    <div class="r-card-img-ph">Add image<span>img/research/patient.jpg</span></div>
+  </div>
   <div class="r-card-body">
-    <div class="r-card-num">03</div>
     <div class="r-card-name">Patient &amp; Clinician-Centred Design</div>
-    <div class="r-card-desc">Collaborations with social scientists and patient/community organisations to co-design AI systems that are genuinely acceptable and adaptable in practice — not limited to just research.</div>
+    <div class="r-card-desc">Collaborations with social scientists and patient/community organisations to co-design AI systems that are genuinely acceptable and adaptable in practice &mdash; not limited to just research.</div>
     <div class="r-card-areas">Co-design &middot; Adoption &middot; Ethics &middot; HCI &middot; End-user Perspectives</div>
     <a href="research-patient.html" class="r-card-link">Explore theme &rarr;</a>
   </div>
 </div>
-
 <div class="collab-cta" style="margin-top:36px">
-  <strong>I am always looking for collaborations from diverse disciplines</strong> who are genuinely committed to building translatable AI systems for healthcare. Please <a href="contact.html">reach out if interested</a>.
+<strong>I am always looking for collaborations from diverse disciplines</strong> who are genuinely committed to building translatable AI systems for healthcare. Please <a href="mailto:deval.mehta1092@gmail.com">reach out</a> if interested.
 </div>
 </section>
 </div></main>
