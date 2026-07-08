@@ -1,0 +1,28 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f0f5ff"/>
+
+  <!-- Patient figure (left) -->
+  <circle cx="95" cy="88" r="30" fill="#ebf0fd" stroke="#1f50b8" stroke-width="2.5"/>
+  <rect   x="70" y="124" width="50" height="80" rx="12" fill="#ebf0fd" stroke="#1f50b8" stroke-width="2.5"/>
+  <text x="95" y="225" font-family="system-ui,sans-serif" font-size="12" fill="#1f50b8" text-anchor="middle" font-weight="600">Patient</text>
+
+  <!-- Clinician figure (right) -->
+  <circle cx="305" cy="88" r="30" fill="#1f50b8" opacity="0.85" stroke="#1f50b8" stroke-width="2.5"/>
+  <rect   x="280" y="124" width="50" height="80" rx="12" fill="#1f50b8" opacity="0.85" stroke="#1f50b8" stroke-width="2.5"/>
+  <text x="305" y="225" font-family="system-ui,sans-serif" font-size="12" fill="#1f50b8" text-anchor="middle" font-weight="600">Clinician</text>
+
+  <!-- Connecting bridge lines -->
+  <line x1="148" y1="150" x2="175" y2="150" stroke="#8bb4e8" stroke-width="2" stroke-dasharray="5,4"/>
+  <line x1="225" y1="150" x2="252" y2="150" stroke="#8bb4e8" stroke-width="2" stroke-dasharray="5,4"/>
+
+  <!-- Central co-design node -->
+  <circle cx="200" cy="150" r="28" fill="white" stroke="#1f50b8" stroke-width="2.5"/>
+  <text x="200" y="147" font-family="system-ui,sans-serif" font-size="9"  fill="#1f50b8" text-anchor="middle" font-weight="600">Co-</text>
+  <text x="200" y="159" font-family="system-ui,sans-serif" font-size="9"  fill="#1f50b8" text-anchor="middle" font-weight="600">design</text>
+
+  <!-- Arrowheads on lines -->
+  <polygon points="175,144 175,156 185,150" fill="#8bb4e8"/>
+  <polygon points="225,144 225,156 215,150" fill="#8bb4e8"/>
+
+  <text x="200" y="284" font-family="system-ui,sans-serif" font-size="11" fill="#4a7bd4" text-anchor="middle" font-weight="500">Co-design · End-user Perspectives</text>
+</svg>

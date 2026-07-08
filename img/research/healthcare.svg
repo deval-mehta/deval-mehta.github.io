@@ -1,0 +1,28 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f0f5ff"/>
+
+  <!-- Medical cross: two overlapping rectangles -->
+  <rect x="155" y="60"  width="90" height="180" rx="10" fill="#1f50b8" opacity="0.12"/>
+  <rect x="95"  y="120" width="210" height="60"  rx="10" fill="#1f50b8" opacity="0.12"/>
+  <rect x="155" y="60"  width="90" height="180" rx="10" fill="none" stroke="#1f50b8" stroke-width="2" opacity="0.4"/>
+  <rect x="95"  y="120" width="210" height="60"  rx="10" fill="none" stroke="#1f50b8" stroke-width="2" opacity="0.4"/>
+
+  <!-- 4 domain dots at arm ends -->
+  <!-- Top: Neurology -->
+  <circle cx="200" cy="68"  r="10" fill="#1f50b8"/>
+  <text x="200" y="50" font-family="system-ui,sans-serif" font-size="10" fill="#1f50b8" text-anchor="middle" font-weight="500">Neurology</text>
+
+  <!-- Right: Dermatology -->
+  <circle cx="298" cy="150" r="10" fill="#1f50b8"/>
+  <text x="354" y="154" font-family="system-ui,sans-serif" font-size="10" fill="#1f50b8" text-anchor="middle" font-weight="500">Dermatology</text>
+
+  <!-- Bottom: Histopathology -->
+  <circle cx="200" cy="232" r="10" fill="#1f50b8"/>
+  <text x="200" y="256" font-family="system-ui,sans-serif" font-size="10" fill="#1f50b8" text-anchor="middle" font-weight="500">Histopathology</text>
+
+  <!-- Left: Hospital Settings -->
+  <circle cx="102" cy="150" r="10" fill="#1f50b8"/>
+  <text x="46" y="154" font-family="system-ui,sans-serif" font-size="10" fill="#1f50b8" text-anchor="middle" font-weight="500">Hospital</text>
+
+  <text x="200" y="284" font-family="system-ui,sans-serif" font-size="11" fill="#4a7bd4" text-anchor="middle" font-weight="500">Clinical Translation · Healthcare AI</text>
+</svg>
