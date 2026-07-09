@@ -523,3 +523,15 @@ img { display: block; max-width: 100%; }
   .page { padding: 0 16px; }
   .sec { padding: 40px 0; }
 }
+
+/* Contact info rows in hero left column */
+.hero-contact { margin-top: 8px; }
+.hero-contact-row {
+  display: flex; align-items: flex-start; gap: 7px;
+  font-size: .72rem; color: var(--text-2);
+  line-height: 1.45; margin-bottom: 8px;
+}
+.hero-contact-row:last-child { margin-bottom: 0; }
+.hero-contact-row svg { width: 13px; height: 13px; flex-shrink: 0; margin-top: 1px; stroke: var(--accent); }
+.hero-contact-row a { color: var(--text-2); word-break: break-word; }
+.hero-contact-row a:hover { color: var(--accent); text-decoration: none; }
